@@ -29,6 +29,9 @@
 		3B4A5CB829E65D1A00FCB09A /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A5CB729E65D1A00FCB09A /* AudioTrack.swift */; };
 		3B4A5CBA29E65D2400FCB09A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A5CB929E65D2400FCB09A /* Artist.swift */; };
 		3B4A5CBC29E65D4200FCB09A /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A5CBB29E65D4200FCB09A /* UserProfile.swift */; };
+		3B9CF29F29E8AA6E00CCFF33 /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9CF29E29E8AA6E00CCFF33 /* SettingsModels.swift */; };
+		3B9CF2A229E8B63000CCFF33 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B9CF2A129E8B63000CCFF33 /* SDWebImage */; };
+		3B9CF2A429E8B63000CCFF33 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B9CF2A329E8B63000CCFF33 /* SDWebImageMapKit */; };
 		3BA5C39D29E791A3009CFCB5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5C39C29E791A3009CFCB5 /* Extensions.swift */; };
 		3BA5C39F29E7BDCE009CFCB5 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5C39E29E7BDCE009CFCB5 /* AuthResponse.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,7 @@
 		3B4A5CB729E65D1A00FCB09A /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		3B4A5CB929E65D2400FCB09A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3B4A5CBB29E65D4200FCB09A /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		3B9CF29E29E8AA6E00CCFF33 /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 		3BA5C39C29E791A3009CFCB5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3BA5C39E29E7BDCE009CFCB5 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B9CF2A429E8B63000CCFF33 /* SDWebImageMapKit in Frameworks */,
+				3B9CF2A229E8B63000CCFF33 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +145,7 @@
 				3B4A5CB929E65D2400FCB09A /* Artist.swift */,
 				3B4A5CBB29E65D4200FCB09A /* UserProfile.swift */,
 				3BA5C39E29E7BDCE009CFCB5 /* AuthResponse.swift */,
+				3B9CF29E29E8AA6E00CCFF33 /* SettingsModels.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -201,6 +208,10 @@
 			dependencies = (
 			);
 			name = Spotify;
+			packageProductDependencies = (
+				3B9CF2A129E8B63000CCFF33 /* SDWebImage */,
+				3B9CF2A329E8B63000CCFF33 /* SDWebImageMapKit */,
+			);
 			productName = Spotify;
 			productReference = 3B4A5C7C29E6581200FCB09A /* Spotify.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 3B4A5C7329E6581200FCB09A;
+			packageReferences = (
+				3B9CF2A029E8B63000CCFF33 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 3B4A5C7D29E6581200FCB09A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -272,6 +286,7 @@
 				3BA5C39D29E791A3009CFCB5 /* Extensions.swift in Sources */,
 				3B4A5C9E29E65B8C00FCB09A /* LibraryViewController.swift in Sources */,
 				3B4A5CBA29E65D2400FCB09A /* Artist.swift in Sources */,
+				3B9CF29F29E8AA6E00CCFF33 /* SettingsModels.swift in Sources */,
 				3B4A5CAC29E65C6A00FCB09A /* PlaylistViewController.swift in Sources */,
 				3B4A5C8229E6581200FCB09A /* SceneDelegate.swift in Sources */,
 				3B4A5CAA29E65C4E00FCB09A /* PlayerViewController.swift in Sources */,
@@ -484,6 +499,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B9CF2A029E8B63000CCFF33 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B9CF2A129E8B63000CCFF33 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B9CF2A029E8B63000CCFF33 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		3B9CF2A329E8B63000CCFF33 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B9CF2A029E8B63000CCFF33 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B4A5C7429E6581200FCB09A /* Project object */;
 }
