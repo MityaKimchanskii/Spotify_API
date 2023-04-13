@@ -38,6 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Check Sign In URL
         print(AuthManager.shared.signInURL?.absoluteString)
         
+        AuthManager.shared.refreshAccessTokenIfNeeded { success in
+            print(success)
+        }
+        
         return true
     }
 

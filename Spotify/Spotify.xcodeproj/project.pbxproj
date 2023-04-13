@@ -30,6 +30,7 @@
 		3B4A5CBA29E65D2400FCB09A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A5CB929E65D2400FCB09A /* Artist.swift */; };
 		3B4A5CBC29E65D4200FCB09A /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A5CBB29E65D4200FCB09A /* UserProfile.swift */; };
 		3BA5C39D29E791A3009CFCB5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5C39C29E791A3009CFCB5 /* Extensions.swift */; };
+		3BA5C39F29E7BDCE009CFCB5 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5C39E29E7BDCE009CFCB5 /* AuthResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		3B4A5CB929E65D2400FCB09A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		3B4A5CBB29E65D4200FCB09A /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		3BA5C39C29E791A3009CFCB5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3BA5C39E29E7BDCE009CFCB5 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				3B4A5CB729E65D1A00FCB09A /* AudioTrack.swift */,
 				3B4A5CB929E65D2400FCB09A /* Artist.swift */,
 				3B4A5CBB29E65D4200FCB09A /* UserProfile.swift */,
+				3BA5C39E29E7BDCE009CFCB5 /* AuthResponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				3B4A5CA429E65C0400FCB09A /* WelcomeViewController.swift in Sources */,
 				3B4A5CA829E65C3A00FCB09A /* ProfileViewController.swift in Sources */,
 				3B4A5C9A29E65B1C00FCB09A /* TabBarViewController.swift in Sources */,
+				3BA5C39F29E7BDCE009CFCB5 /* AuthResponse.swift in Sources */,
 				3B4A5CB829E65D1A00FCB09A /* AudioTrack.swift in Sources */,
 				3B4A5C8429E6581200FCB09A /* HomeViewController.swift in Sources */,
 				3B4A5CA229E65BEF00FCB09A /* AuthViewController.swift in Sources */,
