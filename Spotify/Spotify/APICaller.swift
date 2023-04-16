@@ -96,7 +96,7 @@ final class APICaller {
         let seeds = genres.joined(separator: ",")
         createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations?limit=50&seed_genres=\(seeds)"), type: .GET) { request in
             
-            print(request.url?.absoluteString)
+//            print(request.url?.absoluteString)
             
             URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data, error == nil else {
@@ -108,7 +108,7 @@ final class APICaller {
 //                    let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
 //                    print(json)
                     let result = try JSONDecoder().decode(RecommendationResponse.self, from: data)
-                    print(result)
+//                    print(result)
                     completion(.success(result))
                 } catch {
                     completion(.failure(error))
