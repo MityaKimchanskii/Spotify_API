@@ -56,17 +56,18 @@ final class APICaller {
                         completion(.failure(APIError.failedToGetData))
                         return
                     }
-                    
                     do {
 //                        let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
 //                        print(result)
                         let result = try JSONDecoder().decode(PlaylistDetailsResponse.self, from: data)
-                        print(result)
-                        
+//                        print(result)
+                        completion(.success(result))
                     } catch {
                         completion(.failure(error))
                     }
                 }
+                
+                
             }
             task.resume()
         }
@@ -113,7 +114,7 @@ final class APICaller {
 //                    let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
 //                    print(json)
                     let result = try JSONDecoder().decode(NewReleasesResponse.self, from: data)
-//                    print(result)
+                    //                    print(result)
                     completion(.success(result))
                 } catch {
                     completion(.failure(error))

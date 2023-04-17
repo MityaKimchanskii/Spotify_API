@@ -363,7 +363,7 @@ extension HomeViewController {
             let verticalGroup = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .absolute(80)
+                    heightDimension: .absolute(60)
                 ),
                 subitem: item,
                 count: 1

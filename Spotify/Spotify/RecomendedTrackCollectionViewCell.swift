@@ -32,6 +32,8 @@ class RecomendedTrackCollectionViewCell: UICollectionViewCell {
         
         albumCoverImageView.translatesAutoresizingMaskIntoConstraints = false
         albumCoverImageView.clipsToBounds = true
+        albumCoverImageView.image = UIImage(systemName: "photo")
+        albumCoverImageView.tintColor = .systemGray
         albumCoverImageView.layer.cornerRadius = 5
         
         trackNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,10 +51,10 @@ class RecomendedTrackCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             albumCoverImageView.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1),
             albumCoverImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            albumCoverImageView.widthAnchor.constraint(equalToConstant: 70),
-            albumCoverImageView.heightAnchor.constraint(equalToConstant: 70),
+            albumCoverImageView.widthAnchor.constraint(equalToConstant: 50),
+            albumCoverImageView.heightAnchor.constraint(equalToConstant: 50),
             
-            trackNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            trackNameLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1),
             trackNameLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: albumCoverImageView.trailingAnchor, multiplier: 1),
             
             artistNameLabel.topAnchor.constraint(equalToSystemSpacingBelow: trackNameLabel.bottomAnchor, multiplier: 1),
