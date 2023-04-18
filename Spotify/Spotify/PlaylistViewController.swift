@@ -20,10 +20,11 @@ class PlaylistViewController: UIViewController {
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(RecomendedTrackCollectionViewCell.self, forCellWithReuseIdentifier: RecomendedTrackCollectionViewCell.id)
-        //        cv.allowsSelection = true
-        //        cv.showsHorizontalScrollIndicator = false
-        //        cv.isPagingEnabled = true
+        cv.register(RecomendedTrackCollectionViewCell.self,
+                    forCellWithReuseIdentifier: RecomendedTrackCollectionViewCell.id)
+        cv.register(PlaylistHeaderCollectionReusableView.self,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: PlaylistHeaderCollectionReusableView.id)
         cv.dataSource = self
         cv.delegate = self
         
@@ -45,6 +46,7 @@ class PlaylistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBarItem()
         style()
         layout()
         fetchData()
@@ -53,6 +55,21 @@ class PlaylistViewController: UIViewController {
 
 // MARK: - Methods
 extension PlaylistViewController {
+    
+    private func setupNavigationBarItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+    }
+    
+    @objc private func didTapShare() {
+        guard let url = URL(string: playlist.external_urls["spotify"] ?? "") else { return }
+        
+        let vc = UIActivityViewController(
+            activityItems: [url],
+            applicationActivities: [])
+        
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
     
     private func style() {
         view.backgroundColor = .systemBackground
@@ -68,6 +85,7 @@ extension PlaylistViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
     
     private func fetchData() {
         APICaller.shared.getPlaylistDetails(for: playlist) { [weak self] result in
@@ -117,5 +135,36 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.width, height: 60)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
+
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: PlaylistHeaderCollectionReusableView.id,
+            for: indexPath) as? PlaylistHeaderCollectionReusableView else {
+            return UICollectionReusableView()
+        }
+
+        let headerViewModel = PlaylistHeaderViewViewModel(
+            name: playlist.name,
+            ownerName: playlist.owner.display_name,
+            description: playlist.description,
+            artWork: URL(string: playlist.images.first?.url ?? ""))
+        
+        header.configure(with: headerViewModel)
+        header.delegate = self
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.width, height: view.height/2.5)
+    }
+}
+
+extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
+    func playButtonTapped(_ header: PlaylistHeaderCollectionReusableView) {
+        print("Hello")
     }
 }
