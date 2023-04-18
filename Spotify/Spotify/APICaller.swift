@@ -27,19 +27,21 @@ final class APICaller {
         createRequest(with: URL(string: Constants.baseAPIURL + "/albums/" + album.id), type: .GET) { request in
             
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
-                guard let data, error == nil else {
-                    completion(.failure(APIError.failedToGetData))
-                    return
-                }
-                
-                do {
-//                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                    print(result)
-                    let result = try JSONDecoder().decode(AlbumDetailResponse.self, from: data)
-//                    print(result)
-                    completion(.success(result))
-                } catch {
-                    completion(.failure(error))
+                DispatchQueue.main.async {
+                    guard let data, error == nil else {
+                        completion(.failure(APIError.failedToGetData))
+                        return
+                    }
+                    
+                    do {
+    //                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+    //                    print(result)
+                        let result = try JSONDecoder().decode(AlbumDetailResponse.self, from: data)
+    //                    print(result)
+                        completion(.success(result))
+                    } catch {
+                        completion(.failure(error))
+                    }
                 }
             }
             task.resume()

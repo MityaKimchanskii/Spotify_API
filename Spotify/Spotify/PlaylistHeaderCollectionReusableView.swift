@@ -21,6 +21,8 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 27, weight: .bold)
+        label.contentMode = .center
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -113,7 +115,8 @@ extension PlaylistHeaderCollectionReusableView {
             imageView.widthAnchor.constraint(equalToConstant: height/1.9),
             
             nameLabel.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 1),
-            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nameLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: nameLabel.trailingAnchor, multiplier: 1),
             
             descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: nameLabel.bottomAnchor, multiplier: 1),
             descriptionLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
