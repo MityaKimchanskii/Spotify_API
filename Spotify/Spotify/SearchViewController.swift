@@ -32,11 +32,20 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let resultsController = searchController.searchResultsController as? SearchResultsViewController,
-              let query = searchController.searchBar.text,
-              !query.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+//        guard let resultsController = searchController.searchResultsController as? SearchResultsViewController,
+//              let query = searchController.searchBar.text,
+//              !query.trimmingCharacters(in: .whitespaces).isEmpty else { return }
         
-        print(query)
+//        APICaller.shared.search(with: query) { [weak self] result in
+//            switch result {
+//            case .success(let results):
+//                break
+//            case .failure(let error):
+//                print(error)
+//                print(error.localizedDescription)
+//            }
+//        }
+//        print(query)
     }
 }
 
@@ -72,6 +81,9 @@ extension SearchViewController {
         view.backgroundColor = .systemBackground
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
     }
     
     private func layout() {
@@ -132,3 +144,42 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+// MARK: - Search button Tapped
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        guard let resultsController = searchController.searchResultsController as? SearchResultsViewController,
+              let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        
+        resultsController.delegate = self
+        
+        APICaller.shared.search(with: query) { [weak self] result in
+            switch result {
+            case .success(let results):
+                resultsController.update(with: results)
+            case .failure(let error):
+                print(error)
+                print(error.localizedDescription)
+            }
+        }
+        print(query)
+    }
+}
+
+extension SearchViewController: SearchResultsViewControllerDelegate {
+    func didTapResult(_ result: SearchResult) {
+        switch result {
+        case .artist(let model):
+            break
+        case .album(let model):
+            let vc = AlbumViewController(album: model)
+            navigationController?.pushViewController(vc, animated: true)
+        case .track(let model):
+            break
+        case .playlist(let model):
+            let vc = PlaylistViewController(playlist: model)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}

@@ -262,6 +262,46 @@ final class APICaller {
         case POST
     }
     
+    // MARK: - Search
+    public func search(with query: String, completion: @escaping (Result<[SearchResult], Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/search?type=album,artist,playlist,track&limit=10&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"), type: .GET) { request in
+            
+            print(request)
+            
+            DispatchQueue.main.async {
+                let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                    DispatchQueue.main.async {
+                        guard let data, error == nil else {
+                            completion(.failure(APIError.failedToGetData))
+                            return
+                        }
+                        
+                        do {
+    //                        let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+    //                        print(json)
+                            
+                            let result = try JSONDecoder().decode(SearchResultResponse.self, from: data)
+                            
+                            var searchResult: [SearchResult] = []
+                            
+                            searchResult.append(contentsOf: result.tracks.items.compactMap({ SearchResult.track(model: $0 )}))
+                            searchResult.append(contentsOf: result.albums.items.compactMap({ SearchResult.album(model: $0 )}))
+                            searchResult.append(contentsOf: result.artists.items.compactMap({ SearchResult.artist(model: $0 )}))
+                            searchResult.append(contentsOf: result.playlists.items.compactMap({ SearchResult.playlist(model: $0 )}))
+                            
+                            completion(.success(searchResult))
+                            
+                        } catch {
+                            print(error.localizedDescription)
+                            completion(.failure(error))
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
+    }
+    
     private func createRequest(with url: URL?, type: HTTPMethod, completion: @escaping (URLRequest) -> Void) {
         AuthManager.shared.withValidToken { token in
             

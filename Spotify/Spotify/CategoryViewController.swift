@@ -10,6 +10,7 @@ import UIKit
 class CategoryViewController: UIViewController {
     
     let category: Category
+    
     private var playlists: [Playlist] = []
     
     private let collectionView: UICollectionView = {
@@ -102,7 +103,7 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
             name: playlist.name,
             artWorkURL: URL(string: playlist.images.first?.url ?? ""),
             creatorName: playlist.owner.display_name))
-        cell.backgroundColor = .systemGreen
+//        cell.backgroundColor = colors.randomElement()
         return cell
     }
     
