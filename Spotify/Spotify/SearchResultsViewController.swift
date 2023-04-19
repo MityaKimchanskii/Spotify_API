@@ -88,7 +88,8 @@ class SearchResultsViewController: UIViewController {
     
     private func style() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SearchResultSubTitleTableViewCell.self, forCellReuseIdentifier: SearchResultSubTitleTableViewCell.id)
+        tableView.register(SearchResultDefaultTableViewCell.self, forCellReuseIdentifier: SearchResultDefaultTableViewCell.id)
         tableView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -119,19 +120,59 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
         
         let result = sections[indexPath.section].results[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubTitleTableViewCell.id, for: indexPath) as? SearchResultSubTitleTableViewCell else {
+//            return UITableViewCell()
+//        }
         switch result {
-        case .artist(model: let model):
-            cell.textLabel?.text = model.name
-        case .album(model: let model):
-            cell.textLabel?.text = model.name
-        case .track(model: let model):
-            cell.textLabel?.text = model.name
-        case .playlist(model: let model):
-            cell.textLabel?.text = model.name
+        case .artist(let artist):
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultDefaultTableViewCell.id, for: indexPath) as? SearchResultDefaultTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(with: SearchResultDefaultTableViewCellViewModel(
+                title: artist.name,
+                imageURL: URL(string: artist.images?.first?.url ?? ""))
+            )
+            
+            return cell
+            
+        case .album(let album):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubTitleTableViewCell.id, for: indexPath) as? SearchResultSubTitleTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: SearchResultSubTitleTableViewCellViewModel(
+                title: album.name,
+                subtitle: album.artists.first?.name ?? "",
+                imageURL: URL(string: album.images.first?.url ?? ""))
+            )
+            
+            return cell
+            
+        case .track(let track):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubTitleTableViewCell.id, for: indexPath) as? SearchResultSubTitleTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: SearchResultSubTitleTableViewCellViewModel(
+                title: track.name,
+                subtitle: track.artists.first?.name ?? "-",
+                imageURL: URL(string: track.album?.images.first?.url ?? ""))
+            )
+            
+            return cell
+            
+        case .playlist(model: let playlist):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultSubTitleTableViewCell.id, for: indexPath) as? SearchResultSubTitleTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: SearchResultSubTitleTableViewCellViewModel(
+                title: playlist.name,
+                subtitle: playlist.description,
+                imageURL: URL(string: playlist.images.first?.url ?? ""))
+            )
+            
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -142,5 +183,9 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
         tableView.deselectRow(at: indexPath, animated: true)
         let result = sections[indexPath.section].results[indexPath.row]
         delegate?.didTapResult(result)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }
