@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SDWebImage
 
-class GenreCollectionViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: UICollectionViewCell {
     
     static let id = "genreCell"
     
@@ -48,6 +49,8 @@ class GenreCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .white
+        imageView.layer.cornerRadius = 8
+        imageView.layer.masksToBounds = true
         imageView.image = UIImage(systemName: "music.quarternote.3")
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,13 +69,14 @@ class GenreCollectionViewCell: UICollectionViewCell {
             
             imageView.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1),
             contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: imageView.trailingAnchor, multiplier: 1),
-            imageView.heightAnchor.constraint(equalToConstant: contentView.height/2),
-            imageView.widthAnchor.constraint(equalToConstant: contentView.width/2)
+            imageView.heightAnchor.constraint(equalToConstant: contentView.height/1.5),
+            imageView.widthAnchor.constraint(equalToConstant: contentView.width/1.5)
         ])
     }
     
-    func configure(with title: String) {
-        label.text = title
+    func configure(with viewModel: CategoryCollectionViewCellViewModel) {
+        label.text = viewModel.title
+        imageView.sd_setImage(with: viewModel.artWork)
         contentView.backgroundColor = colors.randomElement()
     }
     
