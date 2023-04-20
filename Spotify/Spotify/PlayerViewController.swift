@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import SDWebImage
+
+protocol PlayerViewControllerDelegate: AnyObject {
+    func tapPlayPause()
+    func tapForward()
+    func tapBackward()
+    func didSlideSlider(_ value: Float)
+}
 
 class PlayerViewController: UIViewController {
 
     private let imageView = UIImageView()
     private let controlsView = PlayerControlsView()
     
+    weak var dataSource: PlayerDataSource?
+    weak var delegate: PlayerViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +29,7 @@ class PlayerViewController: UIViewController {
         configureBarButtons()
         style()
         layout()
+        configure()
     }
     
     private func style() {
@@ -26,7 +37,6 @@ class PlayerViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .green
         imageView.contentMode = .scaleAspectFit
         
         controlsView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,20 +74,29 @@ class PlayerViewController: UIViewController {
     @objc private func didTapAction() {
         // Actions
     }
+    
+    private func configure() {
+        imageView.sd_setImage(with: dataSource?.imageURL)
+        controlsView.configure(with: PlayerControlsViewViewModel(title: dataSource?.songName, subtitle: dataSource?.subtitle))
+    }
 
 }
 
 // MARK: - Actions Delegate
 extension PlayerViewController: PlayerControlsViewDelegate {
+    func playerControlsView(_ playerControlsView: PlayerControlsView, didSlideSlider value: Float) {
+        delegate?.didSlideSlider(value)
+    }
+    
     func didTapPlayPause(_ playerControlsView: PlayerControlsView) {
-        print("play")
+        delegate?.tapPlayPause()
     }
     
     func didTapNext(_ playerControlsView: PlayerControlsView) {
-        print("next")
+        delegate?.tapForward()
     }
     
     func didTapBack(_ playerControlsView: PlayerControlsView) {
-        print("back")
+        delegate?.tapBackward()
     }
 }

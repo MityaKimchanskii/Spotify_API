@@ -11,9 +11,17 @@ protocol PlayerControlsViewDelegate: AnyObject {
     func didTapPlayPause(_ playerControlsView: PlayerControlsView)
     func didTapNext(_ playerControlsView: PlayerControlsView)
     func didTapBack(_ playerControlsView: PlayerControlsView)
+    func playerControlsView(_ playerControlsView: PlayerControlsView, didSlideSlider value: Float)
+}
+
+struct PlayerControlsViewViewModel {
+    let title: String?
+    let subtitle: String?
 }
 
 final class PlayerControlsView: UIView {
+    
+    private var isPlaying = true
     
     private let volumeSlider = UISlider()
     private let nameLabel = UILabel()
@@ -32,6 +40,7 @@ final class PlayerControlsView: UIView {
         activateBackButton()
         activateNextButton()
         activatePlayPauseButton()
+        activateSlider()
     }
     
     required init?(coder: NSCoder) {
@@ -126,7 +135,28 @@ extension PlayerControlsView {
     }
     
     @objc func playPauseButtonTapped() {
+        self.isPlaying = !isPlaying
         delegate?.didTapPlayPause(self)
+        
+        // Update icon
+        let configuration = UIImage.SymbolConfiguration(pointSize: 33, weight: .regular)
+        let pause = UIImage(systemName: "pause", withConfiguration: configuration)
+        let play = UIImage(systemName: "play.fill", withConfiguration: configuration)
+        playPauseButton.setImage(isPlaying ? pause : play, for: .normal)
+    }
+    
+    private func activateSlider() {
+        volumeSlider.addTarget(self, action: #selector(didSlideVolume(_:)), for: .valueChanged)
+    }
+    
+    @objc private func didSlideVolume(_ slider: UISlider) {
+        let value = slider.value
+        delegate?.playerControlsView(self, didSlideSlider: value)
+    }
+    
+    func configure(with viewModel: PlayerControlsViewViewModel) {
+        nameLabel.text = viewModel.title
+        subtitleLabel.text = viewModel.subtitle
     }
     
 }

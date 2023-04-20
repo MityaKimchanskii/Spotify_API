@@ -12,6 +12,7 @@ struct AudioTrack: Codable {
     let artists: [Artist]
     let available_markets: [String]
 //    let disk_number: Int?
+    let preview_url: String?
     let duration_ms: Int
     let explicit: Bool
     let external_urls: [String: String]
