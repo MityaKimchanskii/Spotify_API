@@ -10,6 +10,7 @@ import UIKit
 class PlaylistViewController: UIViewController {
     
     private let playlist: Playlist
+    private var tracks: [AudioTrack] = []
     
     
     private lazy var collectionView: UICollectionView = {
@@ -91,6 +92,7 @@ extension PlaylistViewController {
         APICaller.shared.getPlaylistDetails(for: playlist) { [weak self] result in
             switch result {
             case .success(let model):
+                self?.tracks = model.tracks.items.compactMap({ $0.track })
                 self?.viewModels = model.tracks.items.compactMap({
                     RecommendedTrackCellViewModel(
                         name: $0.track.name,
@@ -131,6 +133,9 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         collectionView.deselectItem(at: indexPath, animated: true)
         
         // Play song
+        let index = indexPath.row
+        let track = tracks[index]
+        PlaybackPresenter.startPlayback(from: self, track: track)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -165,6 +170,6 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
 
 extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
     func playButtonTapped(_ header: PlaylistHeaderCollectionReusableView) {
-        print("Hello")
+        PlaybackPresenter.startPlayback(from: self, tracks: tracks)
     }
 }

@@ -63,6 +63,8 @@
 		3BC32ADF29F08E480001D72B /* SearchResultDefaultTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC32ADE29F08E480001D72B /* SearchResultDefaultTableViewCellViewModel.swift */; };
 		3BC32AE129F094C60001D72B /* SearchResultSubTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC32AE029F094C60001D72B /* SearchResultSubTitleTableViewCell.swift */; };
 		3BC32AE329F096810001D72B /* SearchResultSubTitleTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC32AE229F096810001D72B /* SearchResultSubTitleTableViewCellViewModel.swift */; };
+		3BC32AE629F0A2740001D72B /* PlaybackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC32AE529F0A2740001D72B /* PlaybackPresenter.swift */; };
+		3BC32AE829F0AB400001D72B /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC32AE729F0AB400001D72B /* PlayerControlsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,8 @@
 		3BC32ADE29F08E480001D72B /* SearchResultDefaultTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDefaultTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		3BC32AE029F094C60001D72B /* SearchResultSubTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSubTitleTableViewCell.swift; sourceTree = "<group>"; };
 		3BC32AE229F096810001D72B /* SearchResultSubTitleTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSubTitleTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		3BC32AE529F0A2740001D72B /* PlaybackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPresenter.swift; sourceTree = "<group>"; };
+		3BC32AE729F0AB400001D72B /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 		3B4A5C7E29E6581200FCB09A /* Spotify */ = {
 			isa = PBXGroup;
 			children = (
+				3BC32AE429F0A2560001D72B /* Presenter */,
 				3B4A5C9329E65A3400FCB09A /* Resources */,
 				3B4A5C9429E65A5300FCB09A /* Managers */,
 				3B4A5C9529E65A5F00FCB09A /* ViewModels */,
@@ -233,6 +238,7 @@
 				3B6485EA29EE590F009533FC /* Search */,
 				3B9CF2B029E915D100CCFF33 /* Browse */,
 				3B4A5C8A29E6581400FCB09A /* LaunchScreen.storyboard */,
+				3BC32AE729F0AB400001D72B /* PlayerControlsView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -301,6 +307,14 @@
 				3BC32AE029F094C60001D72B /* SearchResultSubTitleTableViewCell.swift */,
 			);
 			path = SearchResultsCells;
+			sourceTree = "<group>";
+		};
+		3BC32AE429F0A2560001D72B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3BC32AE529F0A2740001D72B /* PlaybackPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +417,7 @@
 				3B4D168829ECA05100567440 /* RecommendedTrackCellViewModel.swift in Sources */,
 				3B4A5CA829E65C3A00FCB09A /* ProfileViewController.swift in Sources */,
 				3B6485E929EE58BD009533FC /* CategoryCollectionViewCell.swift in Sources */,
+				3BC32AE829F0AB400001D72B /* PlayerControlsView.swift in Sources */,
 				3B4A5C9A29E65B1C00FCB09A /* TabBarViewController.swift in Sources */,
 				3BA5C39F29E7BDCE009CFCB5 /* AuthResponse.swift in Sources */,
 				3BC32ADF29F08E480001D72B /* SearchResultDefaultTableViewCellViewModel.swift in Sources */,
@@ -420,6 +435,7 @@
 				3B9CF2B629E9169800CCFF33 /* FeaturedPlaylistCollectionViewCell.swift in Sources */,
 				3B4A5C9E29E65B8C00FCB09A /* LibraryViewController.swift in Sources */,
 				3B4A5CBA29E65D2400FCB09A /* Artist.swift in Sources */,
+				3BC32AE629F0A2740001D72B /* PlaybackPresenter.swift in Sources */,
 				3B9CF29F29E8AA6E00CCFF33 /* SettingsModels.swift in Sources */,
 				3B4A5CAC29E65C6A00FCB09A /* PlaylistViewController.swift in Sources */,
 				3B4A5C8229E6581200FCB09A /* SceneDelegate.swift in Sources */,

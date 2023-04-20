@@ -10,6 +10,7 @@ import UIKit
 class AlbumViewController: UIViewController {
     
     private let album: Album
+    private var tracks: [AudioTrack] = []
     
     private var viewModels = [AlbumCellViewModel]()
     
@@ -76,6 +77,9 @@ extension AlbumViewController {
         APICaller.shared.getAlbumDetails(for: album) { [weak self] result in
             switch result {
             case .success(let model):
+                
+                self?.tracks = model.tracks.items
+                
                 self?.viewModels = model.tracks.items.compactMap({
                     AlbumCellViewModel(
                         name: $0.name,
@@ -116,6 +120,8 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
         collectionView.deselectItem(at: indexPath, animated: true)
         
         // Play song
+        let track = tracks[indexPath.row]
+        PlaybackPresenter.startPlayback(from: self, track: track)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -150,6 +156,6 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 extension AlbumViewController: PlaylistHeaderCollectionReusableViewDelegate {
     func playButtonTapped(_ header: PlaylistHeaderCollectionReusableView) {
-        print("Hello")
+        PlaybackPresenter.startPlayback(from: self, tracks: tracks)
     }
 }
