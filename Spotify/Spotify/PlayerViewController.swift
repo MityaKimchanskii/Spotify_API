@@ -79,6 +79,10 @@ class PlayerViewController: UIViewController {
         imageView.sd_setImage(with: dataSource?.imageURL)
         controlsView.configure(with: PlayerControlsViewViewModel(title: dataSource?.songName, subtitle: dataSource?.subtitle))
     }
+    
+    func refreshUI() {
+        configure()
+    }
 
 }
 
