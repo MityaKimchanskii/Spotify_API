@@ -9,51 +9,41 @@ import UIKit
 
 class LibraryViewController: UIViewController {
     
-    private let playlistVC = LibraryPLaylistsViewController()
-    private let albumsVC = LibraryAlbumsViewController()
-    private let scrollView = UIScrollView()
+    private let libraryToggleView = LibraryToggleVeiw()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addChildren()
         style()
+        setupToggleView()
         layout()
     }
     
     private func style() {
-        view.backgroundColor = .systemBackground
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.isPagingEnabled = true
-        scrollView.delegate = self
-        scrollView.backgroundColor = .systemPink
-        scrollView.contentSize = CGSize(width: view.width*2, height: scrollView.height)
-        
-        playlistVC.view.frame = CGRect(x: 0, y: 0, width: scrollView.width, height: scrollView.height)
     }
     
     private func layout() {
-        view.addSubview(scrollView)
-        addChild(playlistVC)
-        scrollView.addSubview(playlistVC.view)
-        playlistVC.didMove(toParent: self)
-        addChild(albumsVC)
-        
+        view.addSubview(libraryToggleView)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            libraryToggleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            libraryToggleView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
     
-    private func addChildren() {
-        
+    private func setupToggleView() {
+        libraryToggleView.translatesAutoresizingMaskIntoConstraints = false
+        libraryToggleView.delegate = self
     }
 }
 
-extension LibraryViewController: UIScrollViewDelegate {
+extension LibraryViewController: LibraryToggleViewDelegate {
+    func libraryToggleViewDidTabPlaylists(_ toggleView: LibraryToggleVeiw) {
+        print("Playlists")
+    }
     
+    func libraryToggleViewDidTabAlbum(_ toggleView: LibraryToggleVeiw) {
+        print("Albums")
+    }
 }
