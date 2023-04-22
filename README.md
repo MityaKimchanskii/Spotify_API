@@ -1,4 +1,4 @@
-# Spotify_full_clone
+# Spotify_API
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
