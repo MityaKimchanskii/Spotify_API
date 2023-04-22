@@ -53,29 +53,17 @@ extension LibraryToggleVeiw {
     }
     
     private func layout() {
-//        addSubview(stackView)
-//        stackView.addArrangedSubview(playlistButton)
-//        stackView.addArrangedSubview(albumButton)
-        addSubview(playlistButton)
-//        addSubview(albumButton)
+        addSubview(stackView)
+        stackView.addArrangedSubview(playlistButton)
+        stackView.addArrangedSubview(albumButton)
         
         NSLayoutConstraint.activate([
-//            stackView.topAnchor.constraint(equalTo: topAnchor),
-//            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            stackView.heightAnchor.constraint(equalToConstant: 50),
-//            stackView.widthAnchor.constraint(equalToConstant: 200)
-            
-            playlistButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            playlistButton.topAnchor.constraint(equalTo: topAnchor),
-            playlistButton.widthAnchor.constraint(equalToConstant: 100),
-            playlistButton.heightAnchor.constraint(equalToConstant: 50),
-            
-//            albumButton.leadingAnchor.constraint(equalTo: playlistButton.trailingAnchor),
-//            albumButton.topAnchor.constraint(equalTo: topAnchor),
-//            albumButton.widthAnchor.constraint(equalToConstant: 100),
-//            albumButton.heightAnchor.constraint(equalToConstant: 50),
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 50),
+            stackView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
