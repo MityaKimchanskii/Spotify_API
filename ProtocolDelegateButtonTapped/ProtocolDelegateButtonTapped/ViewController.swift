@@ -7,34 +7,14 @@
 
 import UIKit
 
-class GreenViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemGreen
-    }
-}
-
-class RedViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemRed
-    }
-}
-
 class ViewController: UIViewController {
     
     private let buttonsView = ButtonsView()
-    private let scrollView = UIScrollView()
-    private let greenVC = GreenViewController()
-    private let redVC = RedViewController()
+    private let label = UILabel()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addChildren()
         style()
         layout()
     }
@@ -43,52 +23,38 @@ class ViewController: UIViewController {
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
         buttonsView.delegate = self
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.delegate = self
-        scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGSize(width: view.frame.width*2, height: scrollView.frame.height)
-        
-        greenVC.view.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-        redVC.view.frame = CGRect(x: view.frame.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        label.text = "Protocol-Delegate"
     }
     
     private func layout() {
+        view.addSubview(label)
         view.addSubview(buttonsView)
-        view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
-            buttonsView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 7),
-            buttonsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            scrollView.topAnchor.constraint(equalToSystemSpacingBelow: buttonsView.bottomAnchor, multiplier: 0),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: scrollView.bottomAnchor, multiplier: 1),
+            label.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 15),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-    }
-    
-    private func addChildren() {
-        addChild(greenVC)
-        scrollView.addSubview(greenVC.view)
-        greenVC.didMove(toParent: self)
-        
-        addChild(redVC)
-        scrollView.addSubview(redVC.view)
-        redVC.didMove(toParent: self)
     }
 }
 
 extension ViewController: ButtonsViewDelegate {
     func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView) {
-        print("Green")
+        label.text = "I am green!"
+        label.textColor = .systemGreen
     }
     
     func buttonsViewDelegateRedButtonTapped(_ buttonsView: ButtonsView) {
-        print("Red")
+        label.text = "I am red!"
+        label.textColor = .systemRed
     }
 }
 
-extension ViewController: UIScrollViewDelegate {}
+
 
 
 
