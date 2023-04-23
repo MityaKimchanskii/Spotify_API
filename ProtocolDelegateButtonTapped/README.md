@@ -1,12 +1,12 @@
 # Protocol-Delegate
 
 - step 1 - Protocol Declaration
-
-### protocol ButtonsViewDelegate: AnyObject {
-###     func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView)
-###     func buttonsViewDelegateRedButtonTapped(_ buttonsView: ButtonsView)
-### }
-
+<p>
+    protocol ButtonsViewDelegate: AnyObject { <br>
+        func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView) <br>
+        func buttonsViewDelegateRedButtonTapped(_ buttonsView: ButtonsView) <br>
+    }
+</p>
 - step 2 - Applying in the Class
 
     weak var delegate: ButtonsViewDelegate?
