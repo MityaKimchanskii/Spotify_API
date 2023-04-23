@@ -1,7 +1,7 @@
 # Spotify_API
 
 
-### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Add_Child_Class_to_ViewController">Add Child ViewController</a>
+### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Add_Child_Class_to_ViewController">- How to add child ViewController? </a>
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
