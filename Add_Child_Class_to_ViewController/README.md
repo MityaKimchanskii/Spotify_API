@@ -1,11 +1,11 @@
 # Add Child ViewController
-
+```swift
     private func addChildren() {
         addChild(greenVC)  - step 1
         scrollView.addSubview(greenVC.view) - step 2
         greenVC.didMove(toParent: self) - step 3
     }
-
+```
 - step 1 - addChild(greenVC) - This method creates a parent-child relationship between the current view controller and the object in the childController parameter. This relationship is necessary when embedding the child view controller’s view into the current view controller’s content. If the new child view controller is already the child of a container view controller, it is removed from that container before being added.This method is only intended to be called by an implementation of a custom container view controller. If you override this method, you must call super in your implementation.
 
 - step 2 - addSubview(greenVC.view) - This method establishes a strong reference to view and sets its next responder to the receiver, which is its new superview. Views can have only one superview. If view already has a superview and that view is not the receiver, this method removes the previous superview before making the receiver its new superview.
