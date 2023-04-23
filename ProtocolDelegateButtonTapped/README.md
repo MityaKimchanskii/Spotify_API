@@ -8,9 +8,9 @@
     }
 ```
 - step 2 - Applying in the Class
-
+```swift
     weak var delegate: ButtonsViewDelegate?
-
+```
 - step 3 - Find the location when we want to fire the event
 
 ```swift
