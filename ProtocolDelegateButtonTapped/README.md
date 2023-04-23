@@ -2,10 +2,10 @@
 
 - step 1 - Protocol Declaration
 
-    protocol ButtonsViewDelegate: AnyObject {
-        func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView)
-        func buttonsViewDelegateRedButtonTapped(_ buttonsView: ButtonsView)
-    }
+protocol ButtonsViewDelegate: AnyObject {
+    func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView)
+    func buttonsViewDelegateRedButtonTapped(_ buttonsView: ButtonsView)
+}
 
 - step 2 - Applying in the Class
 
@@ -28,6 +28,7 @@
 - step 5 - Confirm protocol methods in view controller
 
     extension ViewController: ButtonsViewDelegate {
+    
         func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView) {
             label.text = "I am green!"
             label.textColor = .systemGreen
