@@ -2,10 +2,10 @@
 
 - step 1 - Protocol Declaration
 
-###protocol ButtonsViewDelegate: AnyObject {
-###    func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView)
-###    func buttonsViewDelegateRedButtonTapped(_ buttonsView: ButtonsView)
-###}
+### protocol ButtonsViewDelegate: AnyObject {
+###     func buttonsViewDelegateGreenButtonTapped(_ buttonsView: ButtonsView)
+###     func buttonsViewDelegateRedButtonTapped(_ buttonsView: ButtonsView)
+### }
 
 - step 2 - Applying in the Class
 
