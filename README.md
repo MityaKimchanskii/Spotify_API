@@ -2,6 +2,7 @@
 
 
 ### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Add_Child_Class_to_ViewController">- How to add child ViewController? </a>
+### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/ProtocolDelegateButtonTapped">- How to implement the Protocol-Delegate design pattern? </a>
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
