@@ -4,10 +4,13 @@
 ### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Add_Child_Class_to_ViewController">- How to add child ViewController? </a>
 ### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/ProtocolDelegateButtonTapped">- How to implement the Protocol-Delegate design pattern? </a>
 
+
+### Create App programmatically
+```swift
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        
+    
         // Without AuthManager
 //        let window = UIWindow(windowScene: windowScene)
 //        window.rootViewController = TabBarViewController()
@@ -29,9 +32,9 @@
         
         return true
     }
+```
     
-    
-    
+```swift
         func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
@@ -55,7 +58,11 @@
         window.makeKeyAndVisible()
         self.window = window
     }
+```
 
+
+### Create TabBarController programmatically
+```swift
 class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
@@ -89,3 +96,4 @@ class TabBarViewController: UITabBarController {
     }
     
 }
+```
