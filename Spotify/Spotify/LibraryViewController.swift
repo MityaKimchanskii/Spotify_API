@@ -21,6 +21,7 @@ class LibraryViewController: UIViewController {
         style()
         setupToggleView()
         layout()
+        updateBarButtons()
     }
 }
 
@@ -65,6 +66,20 @@ extension LibraryViewController {
         scrollView.addSubview(albumsVC.view)
         albumsVC.didMove(toParent: self)
     }
+    
+    private func updateBarButtons() {
+        switch libraryToggleView.state {
+            
+        case .playlist:
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
+        case .album:
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
+    @objc private func didTapAdd() {
+        playlistsVC.showCreatePlaylistAlert()
+    }
 }
 
 // MARK: - ScrollView Delegate
@@ -72,8 +87,10 @@ extension LibraryViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x >= (view.width-100) {
             libraryToggleView.update(for: .album)
+            updateBarButtons()
         } else {
             libraryToggleView.update(for: .playlist)
+            updateBarButtons()
         }
     }
 }
@@ -82,9 +99,11 @@ extension LibraryViewController: UIScrollViewDelegate {
 extension LibraryViewController: LibraryToggleViewDelegate {
     func libraryToggleViewDidTabPlaylists(_ toggleView: LibraryToggleVeiw) {
         scrollView.setContentOffset(.zero, animated: true)
+        updateBarButtons()
     }
     
     func libraryToggleViewDidTabAlbum(_ toggleView: LibraryToggleVeiw) {
         scrollView.setContentOffset(CGPoint(x: view.width, y: 0), animated: true)
+        updateBarButtons()
     }
 }

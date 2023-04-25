@@ -54,11 +54,35 @@ class HomeViewController: UIViewController {
         configureCollectionView()
         view.addSubview(spiner)
         fetchData()
+        addLongTapGesture()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
+    }
+    
+    private func addLongTapGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didLongPressed(_:)))
+        collectionView.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func didLongPressed(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began else { return }
+        
+        let touchPoint = gesture.location(in: collectionView)
+        guard let indexPath = collectionView.indexPathForItem(at: touchPoint), indexPath.section == 2 else { return }
+        
+        let model = tracks[indexPath.row]
+        
+        let actionSheet = UIAlertController(title: model.name, message: "Add track to a playlist?", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        actionSheet.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            
+        })
+        
+        present(actionSheet, animated: true)
     }
     
     private func configureCollectionView() {

@@ -19,7 +19,7 @@ class LibraryToggleVeiw: UIView {
         case album
     }
     
-    private var state: State = .playlist
+    var state: State = .playlist
     
     private let playlistButton = UIButton()
     private let albumButton = UIButton()
