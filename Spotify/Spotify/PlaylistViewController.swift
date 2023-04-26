@@ -12,6 +12,7 @@ class PlaylistViewController: UIViewController {
     private let playlist: Playlist
     private var tracks: [AudioTrack] = []
     
+    public var isOwner = false
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -51,6 +52,37 @@ class PlaylistViewController: UIViewController {
         style()
         layout()
         fetchData()
+        
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressed))
+        
+        collectionView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func didLongPressed(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began else { return }
+        
+        let touchPoint = gesture.location(in: collectionView)
+        guard let indexPath = collectionView.indexPathForItem(at: touchPoint) else { return }
+        
+        let trackToDelete = tracks[indexPath.row]
+        let actionSheet = UIAlertController(title: trackToDelete.name, message: "Would you like to remove?", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        actionSheet.addAction(UIAlertAction(title: "Removed", style: .destructive, handler: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            APICaller.shared.removeTrackFromPlaylist(track: trackToDelete, playlist: strongSelf.playlist) { success in
+                if success {
+                    print("removed")
+                    strongSelf.tracks.remove(at: indexPath.row)
+                    strongSelf.viewModels.remove(at: indexPath.row)
+                    strongSelf.collectionView.reloadData()
+                } else {
+                    print("Failed to remove")
+                }
+            }
+        }))
+        
+        present(actionSheet, animated: true)
     }
 }
 
@@ -166,6 +198,8 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.width, height: view.height/2.5)
     }
+    
+    
 }
 
 extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
