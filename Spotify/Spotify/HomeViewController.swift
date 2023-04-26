@@ -63,7 +63,8 @@ class HomeViewController: UIViewController {
     }
     
     private func addLongTapGesture() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didLongPressed(_:)))
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressed(_:)))
+        collectionView.isUserInteractionEnabled = true
         collectionView.addGestureRecognizer(gesture)
     }
     
@@ -78,8 +79,15 @@ class HomeViewController: UIViewController {
         let actionSheet = UIAlertController(title: model.name, message: "Add track to a playlist?", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        actionSheet.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
-            
+        actionSheet.addAction(UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
+            let vc = LibraryPLaylistsViewController()
+            vc.selectionHandler = { playlist in
+                APICaller.shared.addTrackToPlaylist(track: model, playlist: playlist) { success in
+                    print("add to playlist: \(success)")
+                }
+            }
+            vc.title = "Select Playlist"
+            self?.present(UINavigationController(rootViewController: vc), animated: true)
         })
         
         present(actionSheet, animated: true)
