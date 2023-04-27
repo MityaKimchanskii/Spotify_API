@@ -15,8 +15,8 @@ final class AuthManager {
     private var refreshingToken = false
     
     struct Constants {
-        static let clientID = "ae51f84560c248dc9f9254e388d89c46"
-        static let clientSecret = "af60331ab5ff44c28b11e5ad1031376e"
+        static let clientID = "-----"
+        static let clientSecret = "-----"
         static let tokenAPIURL = "https://accounts.spotify.com/api/token"
         static let redirectURI = "https://www.google.com/"
         static let scopes = "user-read-private%20playlist-modify-public%20playlist-read-private%20playlist-modify-private%20user-follow-read%20user-library-modify%20user-library-read%20user-read-email"
@@ -92,8 +92,8 @@ final class AuthManager {
             }
             
             do {
-//                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                print("Success: \(json)")
+                //                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                //                print("Success: \(json)")
                 
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 self?.cacheToken(result: result)
@@ -179,8 +179,8 @@ final class AuthManager {
             }
             
             do {
-//                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                print("Success: \(json)")
+                //                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                //                print("Success: \(json)")
                 
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 print("Successfully refreshed")
@@ -207,5 +207,13 @@ final class AuthManager {
         }
         
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expirationDate")
+    }
+    
+    public func signOut(completion: (Bool) -> Void) {
+        UserDefaults.standard.setValue(nil, forKey: "access_token")
+        UserDefaults.standard.setValue(nil, forKey: "refresh_token")
+        UserDefaults.standard.setValue(nil, forKey: "expirationDate")
+        
+        completion(true)
     }
 }

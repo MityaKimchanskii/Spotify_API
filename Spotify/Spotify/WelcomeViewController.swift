@@ -9,29 +9,58 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
-    private let signInButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .white
-        button.setTitle("Sign In with Spotify", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
-
+    private let imageView = UIImageView()
+    
+    private let signInButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        style()
+        layout()
+        activateSignInButton()
+    }
+}
 
-        title = "Spotify"
-        view.backgroundColor = .green
-        view.addSubview(signInButton)
+// MARK: - Methods
+extension WelcomeViewController {
+    
+    private func activateSignInButton() {
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        signInButton.frame = CGRect(x: 20,
-                                    y: view.height-50-view.safeAreaInsets.bottom,
-                                    width: view.width-40,
-                                    height: 50)
+    private func style() {
+        title = "Spotify"
+        view.backgroundColor = .black
+       
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.backgroundColor = .white
+        signInButton.setTitle("Sign In with Spotify", for: .normal)
+        signInButton.setTitleColor(.black, for: .normal)
+        signInButton.layer.masksToBounds = true
+        signInButton.layer.cornerRadius = 7
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "1")
+    }
+    
+    private func layout() {
+        view.addSubview(signInButton)
+        view.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.widthAnchor.constraint(equalToConstant: 200),
+            
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 1),
+            signInButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: signInButton.trailingAnchor, multiplier: 2),
+            signInButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
     }
     
     @objc func didTapSignIn() {
