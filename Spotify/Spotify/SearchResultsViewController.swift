@@ -142,7 +142,7 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
                 return UITableViewCell()
             }
             cell.configure(with: SearchResultSubTitleTableViewCellViewModel(
-                title: album.name,
+                title: album.name ?? "",
                 subtitle: album.artists.first?.name ?? "",
                 imageURL: URL(string: album.images.first?.url ?? ""))
             )

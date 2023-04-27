@@ -68,6 +68,7 @@
 		3BC32AE829F0AB400001D72B /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC32AE729F0AB400001D72B /* PlayerControlsView.swift */; };
 		3BD1C30629F2462F00D48965 /* LibraryPLaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1C30529F2462F00D48965 /* LibraryPLaylistsViewController.swift */; };
 		3BD1C30829F2466900D48965 /* LibraryAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1C30729F2466900D48965 /* LibraryAlbumsViewController.swift */; };
+		3BDDA51A29F9FE3900699B21 /* LibraryAlbumsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDDA51929F9FE3900699B21 /* LibraryAlbumsResponse.swift */; };
 		3BFF548129F758F9002F2537 /* LibraryPlaylistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF548029F758F9002F2537 /* LibraryPlaylistsResponse.swift */; };
 		3BFF548329F75ACD002F2537 /* ActionLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF548229F75ACD002F2537 /* ActionLabelView.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		3BC32AE729F0AB400001D72B /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
 		3BD1C30529F2462F00D48965 /* LibraryPLaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPLaylistsViewController.swift; sourceTree = "<group>"; };
 		3BD1C30729F2466900D48965 /* LibraryAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAlbumsViewController.swift; sourceTree = "<group>"; };
+		3BDDA51929F9FE3900699B21 /* LibraryAlbumsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAlbumsResponse.swift; sourceTree = "<group>"; };
 		3BFF548029F758F9002F2537 /* LibraryPlaylistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPlaylistsResponse.swift; sourceTree = "<group>"; };
 		3BFF548229F75ACD002F2537 /* ActionLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +240,7 @@
 				3B17514029EF89D2003F850B /* SearchResultResponse.swift */,
 				3B17514229EF8BA9003F850B /* SearchResult.swift */,
 				3BFF548029F758F9002F2537 /* LibraryPlaylistsResponse.swift */,
+				3BDDA51929F9FE3900699B21 /* LibraryAlbumsResponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				3B4D168C29ECBC1700567440 /* AlbumDetailResponse.swift in Sources */,
 				3BFF548329F75ACD002F2537 /* ActionLabelView.swift in Sources */,
 				3B4D168429EC7AB000567440 /* NewReleasesCellViewModel.swift in Sources */,
+				3BDDA51A29F9FE3900699B21 /* LibraryAlbumsResponse.swift in Sources */,
 				3B4A5CB029E65CA900FCB09A /* AuthManager.swift in Sources */,
 				3B6485E229EE2CAE009533FC /* TitleHeaderCollectionReusableView.swift in Sources */,
 				3B17513F29EF68A3003F850B /* CategoryViewController.swift in Sources */,

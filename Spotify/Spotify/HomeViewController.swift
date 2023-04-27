@@ -201,7 +201,7 @@ class HomeViewController: UIViewController {
         
         sections.append(.newReleases(viewModels: newAlbums.compactMap({
             return NewReleasesCellViewModel(
-                name: $0.name,
+                name: $0.name ?? "",
                 artworkURL: URL(string: $0.images.first?.url ?? ""),
                 numberOfTracks: $0.total_tracks,
                 artistName: $0.artists.first?.name ?? "-"

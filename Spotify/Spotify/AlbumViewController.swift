@@ -59,6 +59,23 @@ extension AlbumViewController {
     private func style() {
         title = album.name
         view.backgroundColor = .systemBackground
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapActions))
+    }
+    
+    @objc func didTapActions() {
+        let actionSheet = UIAlertController(title: album.name, message: "Actions", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        actionSheet.addAction(UIAlertAction(title: "Save Album", style: .default, handler: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            APICaller.shared.saveAlbum(album: strongSelf.album) { success in
+                if success {
+                    NotificationCenter.default.post(name: .albumSavedNotification, object: nil)
+                }
+            }
+        }))
+        
+        present(actionSheet, animated: true)
     }
     
     private func layout() {
@@ -144,7 +161,7 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let headerViewModel = PlaylistHeaderViewViewModel(
             name: album.name,
             ownerName: album.artists.first?.name,
-            description: "Release date: \(String.formattedDate(str: album.release_date))",
+            description: "Release date: \(String.formattedDate(str: album.release_date ?? " "))",
             artWork: URL(string: album.images.first?.url ?? ""))
 
         header.configure(with: headerViewModel)
