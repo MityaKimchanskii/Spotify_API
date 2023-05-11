@@ -2,7 +2,7 @@
 
 
 ```swift
-        private func setupTabBarController() {
+   private func setupTabBarController() {
         let vc1 = ViewController1()
         let vc2 = ViewController2()
         let vc3 = ViewController3()
