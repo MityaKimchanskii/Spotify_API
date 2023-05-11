@@ -25,3 +25,4 @@ A `UIWindowScene` object manages one instance of your app’s UI, including one 
 `makeKeyAndVisible()` - Shows the window and makes it the key window.
 
 
+<img src='https://github.com/MityaKimchanskii/Spotify_API_And_Swift_Library/blob/main/NoStoryboard/img/2.png' title='image' width='' alt='image' />

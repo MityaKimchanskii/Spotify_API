@@ -22,10 +22,20 @@ class ViewController: UIViewController {
 extension ViewController {
     private func style() {
         view.backgroundColor = .systemMint
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.textColor = .systemPink
+        label.text = "No Storyboard"
     }
     
     private func layout() {
+        view.addSubview(label)
         
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 }
 
