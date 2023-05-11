@@ -1,4 +1,4 @@
-# Spotify_API and Swift Library
+# Swift Library
 
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/NoStoryboard">- How to create new App programmatically </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Add_Child_Class_to_ViewController">- How to add child ViewController? </a>
