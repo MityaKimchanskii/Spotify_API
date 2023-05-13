@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Pokemon: Decodable {
+struct Pokemon: Codable {
     let name: String
     let id: Int
     let sprites: Sprite
 }
 
-struct Sprite: Decodable {
+struct Sprite: Codable {
     let spriteURL: URL
     
     enum CodingKeys: String, CodingKey {

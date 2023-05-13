@@ -36,6 +36,9 @@ final class Service {
                 do {
                     let pokemon = try JSONDecoder().decode(Pokemon.self, from: data)
                     completion(.success(pokemon))
+                    
+//                    let json = try JSONSerialization.jsonObject(with: data)
+//                    print(json)
                 } catch {
                     completion(.failure(ServiceError.unableToDecode))
                 }
