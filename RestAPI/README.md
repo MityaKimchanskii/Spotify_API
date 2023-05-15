@@ -16,6 +16,8 @@ enum ServiceError: Error {
     case unableToDecode
 }
 
+```
+
 - Since we need to update the view and it always runs on the main thread, we need to make a call in the `DispatchQueue.main.async` method because the network in the App runs in the background.
 
 ```swift
