@@ -2,7 +2,6 @@
 
 A `RESTful API` is an architectural style for an application program interface (API) that uses HTTP requests to access and use data. That data can be used to `GET`, `PUT`, `POST` and `DELETE` data types, which refers to the reading, updating, creating and deleting of operations concerning resources.
 
-```
 - Create a `singleton` class and internally create a `shared` instance of that class, then create a methods.
 - The `URLSession` class has a shared instance and a `dataTask` method that we use for the Network.
 - Handle Errors - When we work with a network, there are many places where errors can appear. To handle errors and easily find where they occur, we can use `enum` which handles all kinds of errors.
