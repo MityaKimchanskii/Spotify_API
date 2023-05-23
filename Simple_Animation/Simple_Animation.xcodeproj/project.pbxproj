@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1AB4082A1C3FC40009A58A /* ConstraintAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AB4072A1C3FC40009A58A /* ConstraintAnimation.swift */; };
 		3B83341829F4CEEE0092EA4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B83341729F4CEEE0092EA4F /* AppDelegate.swift */; };
 		3B83341C29F4CEEE0092EA4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B83341B29F4CEEE0092EA4F /* ViewController.swift */; };
 		3B83342129F4CEEF0092EA4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B83342029F4CEEF0092EA4F /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B1AB4072A1C3FC40009A58A /* ConstraintAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintAnimation.swift; sourceTree = "<group>"; };
 		3B83341429F4CEEE0092EA4F /* Simple_Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple_Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B83341729F4CEEE0092EA4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B83341B29F4CEEE0092EA4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				3B83341B29F4CEEE0092EA4F /* ViewController.swift */,
 				3BA3801429F5B6FC00BE3ED3 /* ButtonsView.swift */,
 				3BCB632929F5E00300E5188B /* BorderColorAnimationView.swift */,
+				3B1AB4072A1C3FC40009A58A /* ConstraintAnimation.swift */,
 				3B83342029F4CEEF0092EA4F /* Assets.xcassets */,
 				3B83342229F4CEEF0092EA4F /* LaunchScreen.storyboard */,
 				3B83342529F4CEEF0092EA4F /* Info.plist */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA3801529F5B6FC00BE3ED3 /* ButtonsView.swift in Sources */,
+				3B1AB4082A1C3FC40009A58A /* ConstraintAnimation.swift in Sources */,
 				3BCB632A29F5E00300E5188B /* BorderColorAnimationView.swift in Sources */,
 				3B83341C29F4CEEE0092EA4F /* ViewController.swift in Sources */,
 				3BCB632C29F5EB3100E5188B /* ScaleAnimationView.swift in Sources */,
