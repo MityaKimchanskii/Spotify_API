@@ -12,5 +12,6 @@
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/UIPageViewControllerExample">- Create OnboardingViewController using UIPageViewController </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/NotificationCenter">- NotificationCenter </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/DispatchGroup">- When do we need to use DispatchGroup? </a>
+#### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Skeleton">- How to add skeleton loaders? </a>
 
 
