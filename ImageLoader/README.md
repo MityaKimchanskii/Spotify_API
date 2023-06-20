@@ -3,7 +3,7 @@
 
 ```swift
 
-final class RMImageLoader {
+final class ImageLoader {
     static let shared = RMImageLoader()
     
     private var imageDataCache = NSCache<NSString, NSData>()
@@ -33,6 +33,5 @@ final class RMImageLoader {
         }.resume()
     }
 }
-
-    
+  
 ```
