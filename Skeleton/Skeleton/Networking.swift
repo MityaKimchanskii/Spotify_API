@@ -16,7 +16,7 @@ enum NetworkError: Error {
 struct Profile: Codable {
     let id: Int
     let name: String
-    let gender: String
+    let gender: String?
     let occupation: String?
     
     static func makeSceleton() -> Profile {
