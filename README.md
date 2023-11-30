@@ -14,6 +14,6 @@
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/DispatchGroup">- When do we need to use DispatchGroup? </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Skeleton">- How to add skeleton loaders? </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/ImageLoader">- How to load and cache Image? </a>
-#### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/CollectionViewInsideTableView">- How to create collectionView inside tableView? </a>
+#### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/CollectionViewInsideTableView">- How to create a collectionView inside a tableView? </a>
 
 
