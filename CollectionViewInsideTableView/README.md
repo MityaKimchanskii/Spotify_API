@@ -1,6 +1,6 @@
 # How to create collectionView inside tableView?
 
-##`ViewController`
+## ViewController
 
 ```swift
 
@@ -69,7 +69,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
  
 ```
 
-##`TableViewCell`
+## TableViewCell
 
 ```swift
 
