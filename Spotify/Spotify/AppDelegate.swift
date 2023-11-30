@@ -18,23 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Without AuthManager
 //        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = TabBarViewController()
+        window.makeKeyAndVisible()
+        self.window = window
+        
+        // With AuthManager
+//        if AuthManager.shared.isSignedIn {
+//            AuthManager.shared.refreshAccessTokenIfNeeded(completion: nil)
+//            window.rootViewController = TabBarViewController()
+//        } else {
+//            let navVC = UINavigationController(rootViewController: WelcomeViewController())
+//            navVC.navigationBar.prefersLargeTitles = true
+//            navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
+//            window.rootViewController = navVC
+//        }
 //        window.rootViewController = TabBarViewController()
 //        window.makeKeyAndVisible()
 //        self.window = window
-        
-        // With AuthManager
-        if AuthManager.shared.isSignedIn {
-            AuthManager.shared.refreshAccessTokenIfNeeded(completion: nil)
-            window.rootViewController = TabBarViewController()
-        } else {
-            let navVC = UINavigationController(rootViewController: WelcomeViewController())
-            navVC.navigationBar.prefersLargeTitles = true
-            navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
-            window.rootViewController = navVC
-        }
-        
-        window.makeKeyAndVisible()
-        self.window = window
         
         // Check Sign In URL
 //        print(AuthManager.shared.signInURL?.absoluteString)
