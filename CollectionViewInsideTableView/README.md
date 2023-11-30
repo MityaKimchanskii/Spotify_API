@@ -1,4 +1,4 @@
-# How to create collectionView inside tableView?
+# How to create a collectionView inside a tableViewCell?
 
 ## ViewController
 
