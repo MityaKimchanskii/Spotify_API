@@ -54,7 +54,6 @@ extension CharactersListViewController {
             switch resulst {
             case .success(let profiles):
                 self.profiles = profiles
-                print(profiles)
                 self.isLoaded = true
                 self.configureTableCells(with: profiles)
                 self.tableView.reloadData()
