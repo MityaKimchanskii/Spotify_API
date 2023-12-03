@@ -82,7 +82,7 @@ The properties like size and center are mutable so we can move verticaly and hor
 
 
 
-<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/Skeleton/1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/......./1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
