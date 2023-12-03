@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         loginButton.center.y += 30.0
         loginButton.alpha = 0
         
-        UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseOut]) {
+        UIView.animate(withDuration: 1.5, delay: 0, options: [.repeat, .autoreverse, .curveEaseOut]) {
             self.titleLable.center.x += self.view.bounds.width
         }
         
