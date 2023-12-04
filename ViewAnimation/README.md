@@ -46,6 +46,17 @@ UIView class has a method animate(withDuration:delay:options:animations:)
         UIView.animate(withDuration: 3, delay: 1) {
             self.cloudImage3.alpha = 1
         }
+        
+        private func cloudAnimation(cloud: UIImageView, delay: TimeInterval) {
+            let cloudSpeed = 30.0 / view.frame.size.width
+            let cloudDuration = (view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
+        
+            UIView.animate(withDuration: cloudDuration, delay: delay, options: [.repeat, .curveLinear], animations: {
+                cloud.frame.origin.x = self.view.frame.size.width
+            }) { _ in
+
+            }
+        }
 
 ```
 
@@ -77,9 +88,28 @@ The properties like size and center are mutable so we can move verticaly and hor
    
 ```
 
-## Transition Animation
+## Transition Animation transition(with:,duration:, options:,animations:,completion:)
+- transitionFlipFromLeft
+- transitionFlipFromRight
+- transitionCurlUp
+- transitionCurlDown
+- transitionCrossDissolve
+- transitionFlipFromTop
+- transitionFlipFromBottom
 
+```swift
 
+    private func transitionAnimation(index: Int) {
+        messageLabel.text = statusMessages[index]
+        
+        UIView.transition(with: statusImageView, duration: 1, options: [.curveEaseOut, .transitionCurlDown], animations: {
+            self.statusImageView.isHidden = false
+        }) { _ in
+           
+        }
+    }
+   
+```
 
 
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/......./1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />

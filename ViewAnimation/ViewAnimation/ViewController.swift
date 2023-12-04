@@ -215,7 +215,7 @@ extension ViewController {
         UIView.animate(withDuration: cloudDuration, delay: delay, options: [.repeat, .curveLinear], animations: {
             cloud.frame.origin.x = self.view.frame.size.width
         }) { _ in
-            cloud.frame.origin.x -= cloud.frame.origin.x
+
         }
     }
 }
