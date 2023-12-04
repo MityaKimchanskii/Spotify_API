@@ -185,6 +185,7 @@ extension ViewController {
         ])
     }
 
+    // MARK: - Spring Animation loginButton
     @objc private func loginButtonTapped() {
         UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, animations: {
             self.loginButton.bounds.size.width -= 30
@@ -198,6 +199,7 @@ extension ViewController {
         }
     }
     
+    // MARK: - Transition Animation statusImageView
     private func transitionAnimation(index: Int) {
         messageLabel.text = statusMessages[index]
         
@@ -208,6 +210,7 @@ extension ViewController {
         }
     }
     
+
     private func cloudAnimation(cloud: UIImageView, delay: TimeInterval) {
         let cloudSpeed = 30.0 / view.frame.size.width
         let cloudDuration = (view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
