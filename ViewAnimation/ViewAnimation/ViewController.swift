@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private let statusMessages = ["Connecting...", "Authorizing...", "Failed..."]
+    
     private let titleLable = UILabel()
     private let usernameTexField = UITextField()
     private let passwordTextField = UITextField()
@@ -17,6 +19,8 @@ class ViewController: UIViewController {
     private let cloudImage2 = UIImageView()
     private let cloudImage3 = UIImageView()
     private let activityIndicator = UIActivityIndicatorView()
+    private let statusImageView = UIImageView()
+    private let messageLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +105,8 @@ extension ViewController {
         loginButton.setTitle("Log In", for: .normal)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .primaryActionTriggered)
         loginButton.addSubview(activityIndicator)
+        loginButton.layer.cornerRadius = 5
+        loginButton.clipsToBounds = true
         
         cloudImage1.translatesAutoresizingMaskIntoConstraints = false
         cloudImage1.image = UIImage(systemName: "cloud.fill")
@@ -117,6 +123,19 @@ extension ViewController {
         cloudImage3.translatesAutoresizingMaskIntoConstraints = false
         cloudImage3.image = UIImage(systemName: "cloud.fill")
         cloudImage3.tintColor = .systemYellow
+        
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        messageLabel.textColor = .systemBrown
+        messageLabel.backgroundColor = .clear
+        messageLabel.text = "Connecting..."
+        
+        statusImageView.translatesAutoresizingMaskIntoConstraints = false
+        statusImageView.image = UIImage(named: "status")
+        statusImageView.layer.cornerRadius = 8
+        statusImageView.clipsToBounds = true
+        statusImageView.isHidden = true
+        statusImageView.addSubview(messageLabel)
     }
     
     private func layout() {
@@ -127,7 +146,7 @@ extension ViewController {
         view.addSubview(usernameTexField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
-//        view.addSubview(activityIndicator)
+        view.addSubview(statusImageView)
         
         NSLayoutConstraint.activate([
             cloudImage1.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 9),
@@ -141,7 +160,7 @@ extension ViewController {
             cloudImage2.widthAnchor.constraint(equalToConstant: 130),
             
             cloudImage3.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            cloudImage3.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            cloudImage3.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             cloudImage3.heightAnchor.constraint(equalToConstant: 80),
             cloudImage3.widthAnchor.constraint(equalToConstant: 110),
             
@@ -164,14 +183,24 @@ extension ViewController {
             loginButton.widthAnchor.constraint(equalToConstant: 180),
             
             activityIndicator.centerYAnchor.constraint(equalTo: loginButton.centerYAnchor),
-            activityIndicator.leadingAnchor.constraint(equalToSystemSpacingAfter: loginButton.leadingAnchor, multiplier: 2)
+            activityIndicator.leadingAnchor.constraint(equalToSystemSpacingAfter: loginButton.leadingAnchor, multiplier: 2),
+            
+            statusImageView.topAnchor.constraint(equalToSystemSpacingBelow: loginButton.bottomAnchor, multiplier: 5),
+            statusImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            statusImageView.widthAnchor.constraint(equalToConstant: 200),
+            statusImageView.heightAnchor.constraint(equalToConstant: 70),
+            
+            messageLabel.centerXAnchor.constraint(equalTo: statusImageView.centerXAnchor),
+            messageLabel.centerYAnchor.constraint(equalTo: statusImageView.centerYAnchor)
         ])
     }
-    
+
     @objc private func loginButtonTapped() {
-        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0) {
+        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, animations: {
             self.loginButton.bounds.size.width -= 30
             self.loginButton.alpha = 1
+        }) { _ in
+            self.transitionAnimation(index: 0)
         }
         
         UIView.animate(withDuration: 1) {
@@ -179,7 +208,13 @@ extension ViewController {
         }
     }
     
-    private func transitionAnimation() {
+    private func transitionAnimation(index: Int) {
+        messageLabel.text = statusMessages[index]
         
+        UIView.transition(with: statusImageView, duration: 1, options: [.curveEaseOut, .transitionCurlDown], animations: {
+            self.statusImageView.isHidden = false
+        }) { _ in
+            // do something
+        }
     }
 }
