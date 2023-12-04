@@ -32,9 +32,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        cloudImage1.alpha = 0
-        cloudImage2.alpha = 0
-        cloudImage3.alpha = 0
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,17 +62,9 @@ class ViewController: UIViewController {
             self.passwordTextField.center.x += self.view.bounds.width
         }
         
-        UIView.animate(withDuration: 3, delay: 0) {
-            self.cloudImage1.alpha = 1
-        }
-        
-        UIView.animate(withDuration: 3, delay: 0.5) {
-            self.cloudImage2.alpha = 1
-        }
-        
-        UIView.animate(withDuration: 3, delay: 1) {
-            self.cloudImage3.alpha = 1
-        }
+        cloudAnimation(cloud: cloudImage3, delay: 35)
+        cloudAnimation(cloud: cloudImage2, delay: 0)
+        cloudAnimation(cloud: cloudImage1, delay: 15)
     }
 }
 
@@ -150,17 +140,17 @@ extension ViewController {
         
         NSLayoutConstraint.activate([
             cloudImage1.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 9),
-            cloudImage1.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 5),
+            view.leadingAnchor.constraint(equalToSystemSpacingAfter: cloudImage1.leadingAnchor, multiplier: 15),
             cloudImage1.heightAnchor.constraint(equalToConstant: 60),
             cloudImage1.widthAnchor.constraint(equalToConstant: 90),
             
             cloudImage2.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 17),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: cloudImage2.trailingAnchor, multiplier: 5),
+            view.leadingAnchor.constraint(equalToSystemSpacingAfter: cloudImage2.leadingAnchor, multiplier: 20),
             cloudImage2.heightAnchor.constraint(equalToConstant: 90),
             cloudImage2.widthAnchor.constraint(equalToConstant: 130),
             
             cloudImage3.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            cloudImage3.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.leadingAnchor.constraint(equalToSystemSpacingAfter: cloudImage3.leadingAnchor, multiplier: 15),
             cloudImage3.heightAnchor.constraint(equalToConstant: 80),
             cloudImage3.widthAnchor.constraint(equalToConstant: 110),
             
@@ -214,7 +204,18 @@ extension ViewController {
         UIView.transition(with: statusImageView, duration: 1, options: [.curveEaseOut, .transitionCurlDown], animations: {
             self.statusImageView.isHidden = false
         }) { _ in
-            // do something
+           
+        }
+    }
+    
+    private func cloudAnimation(cloud: UIImageView, delay: TimeInterval) {
+        let cloudSpeed = 30.0 / view.frame.size.width
+        let cloudDuration = (view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
+        
+        UIView.animate(withDuration: cloudDuration, delay: delay, options: [.repeat, .curveLinear], animations: {
+            cloud.frame.origin.x = self.view.frame.size.width
+        }) { _ in
+            cloud.frame.origin.x -= cloud.frame.origin.x
         }
     }
 }
