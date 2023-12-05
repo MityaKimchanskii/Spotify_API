@@ -49,7 +49,7 @@ extension CrossfadingAnimation {
     }
     
     private func fade(imageView: UIImageView, toImage: UIImage?) {
-        UIView.transition(with: imageView, duration: 60, options: [.transitionCrossDissolve, .repeat, .autoreverse], animations: {
+        UIView.transition(with: imageView, duration: 5, options: [.transitionCrossDissolve, .repeat, .autoreverse], animations: {
             imageView.image = toImage
         }) { _ in
             
