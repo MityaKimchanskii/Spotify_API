@@ -215,3 +215,22 @@ UIViewKeyFrameAnimationOptions enumeration
 
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## AutoLayout Animation
+
+```swift
+
+    @objc private func plusButtonTapped() {
+        isOpen = !isOpen
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 10, options: [.curveEaseIn]) {
+            self.titleLabel.text = self.isOpen ? "Close" : "Open"
+            self.topViewHeightConstranint?.constant = self.isOpen ? 160 : 80
+            let angle: CGFloat = self.isOpen ? .pi/4 : 0
+            self.plusButton.transform = CGAffineTransform(rotationAngle: angle)
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough'

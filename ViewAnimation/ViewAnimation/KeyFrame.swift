@@ -66,12 +66,12 @@ extension KeyFrame {
               self.ballImage.transform = CGAffineTransform(rotationAngle: 5 * .pi)
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 0.51, relativeDuration: 0.01) {
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.01) {
                 self.ballImage.transform = .identity
                 self.ballImage.center = CGPoint(x: 0, y: originalCenter.y)
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 0.55, relativeDuration: 0.45) {
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25) {
                 self.ballImage.alpha = 1
                 self.ballImage.center = originalCenter
             }

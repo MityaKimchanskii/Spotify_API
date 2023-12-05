@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */; };
 		3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */; };
 		3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */; };
 		3BEBE9132B1F020900848B8B /* KeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE9122B1F020900848B8B /* KeyFrame.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutAnimation.swift; sourceTree = "<group>"; };
 		3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTransition.swift; sourceTree = "<group>"; };
 		3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAndBounceTransitions.swift; sourceTree = "<group>"; };
 		3BEBE9122B1F020900848B8B /* KeyFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFrame.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */,
 				3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */,
 				F109BD542B1D853B00034127 /* CrossfadingAnimation.swift */,
+				3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */,
 				F109BD492B1BE2E700034127 /* Assets.xcassets */,
 				F109BD4B2B1BE2E700034127 /* LaunchScreen.storyboard */,
 				F109BD4E2B1BE2E700034127 /* Info.plist */,
@@ -146,6 +149,7 @@
 				F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */,
 				3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */,
 				F109BD452B1BE2E600034127 /* ViewController.swift in Sources */,
+				3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */,
 				F109BD412B1BE2E600034127 /* AppDelegate.swift in Sources */,
 				3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */,
 				3BEBE9132B1F020900848B8B /* KeyFrame.swift in Sources */,

@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = CrossfadingAnimation()
 //        window?.rootViewController = CubeTransition()
 //        window?.rootViewController = FadeAndBounceTransitions()
-        window?.rootViewController = KeyFrame()
+//        window?.rootViewController = KeyFrame()
+        window?.rootViewController = AutoLayoutAnimation()
         window?.makeKeyAndVisible()
         
         return true
