@@ -179,3 +179,39 @@ The properties like size and center are mutable so we can move verticaly and hor
 
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## Keyframe Animation .animateKeyframes(withDuration:delay:options:animations:completion:)
+
+The options for keyframes are defferent. 
+UIViewKeyFrameAnimationOptions enumeration 
+
+```swift
+
+    private func hitTheBall() {
+        let originalCenter = ballImage.center
+        
+        UIView.animateKeyframes(withDuration: 5, delay: 0, options: [.repeat], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.25) {
+                self.ballImage.center.x += 400
+                self.ballImage.center.y -= 500
+                self.ballImage.alpha = 0
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+              self.ballImage.transform = CGAffineTransform(rotationAngle: 5 * .pi)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.51, relativeDuration: 0.01) {
+                self.ballImage.transform = .identity
+                self.ballImage.center = CGPoint(x: 0, y: originalCenter.y)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.55, relativeDuration: 0.45) {
+                self.ballImage.alpha = 1
+                self.ballImage.center = originalCenter
+            }
+        })
+    }
+
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
