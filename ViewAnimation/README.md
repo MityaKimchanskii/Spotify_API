@@ -90,7 +90,7 @@ The properties like size and center are mutable so we can move verticaly and hor
 
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-## Transition Animation transition(with:,duration:, options:,animations:,completion:)
+## Transition Animation transition(with:duration:options:animations:completion:)
 - transitionFlipFromLeft
 - transitionFlipFromRight
 - transitionCurlUp
@@ -115,5 +115,32 @@ The properties like size and center are mutable so we can move verticaly and hor
 
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+## Cube Transition Animation
 
+```swift
 
+        private func cubeTransition(label: UILabel, text: String, direction: AnimationDirection) {
+        let auxLabel = UILabel(frame: label.frame)
+        auxLabel.text = text
+        auxLabel.font = label.font
+        auxLabel.textColor = label.textColor
+        auxLabel.textAlignment = label.textAlignment
+        
+        let auxLabelOffset = CGFloat(direction.rawValue) * label.frame.size.height / 2.0
+        
+        auxLabel.transform = CGAffineTransform(translationX: 0.0, y: auxLabelOffset).scaledBy(x: 1.0, y: 0.1)
+        label.superview?.addSubview(auxLabel)
+        
+        UIView.animate(withDuration: 5, delay: 0.0, options: [.repeat, .autoreverse, .curveEaseOut], animations: {
+            auxLabel.transform = .identity
+            label.transform = CGAffineTransform(translationX: 0.0, y: -auxLabelOffset).scaledBy(x: 1.0, y: 0.1)
+        }, completion: { _ in
+            label.text = auxLabel.text
+            label.transform = .identity
+            
+            auxLabel.removeFromSuperview()
+        })
+    }
+    
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
