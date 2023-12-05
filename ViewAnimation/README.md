@@ -233,4 +233,4 @@ UIViewKeyFrameAnimationOptions enumeration
     }
     
 ```
-<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough'
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
