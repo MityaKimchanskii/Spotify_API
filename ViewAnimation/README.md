@@ -144,3 +144,38 @@ The properties like size and center are mutable so we can move verticaly and hor
     
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## Fade and bounce transition animation
+
+```swift
+
+    func fadeAndBounce(label: UILabel, text: String, offset: CGPoint) {
+        let auxLabel = UILabel(frame: label.frame)
+        auxLabel.text = text
+        auxLabel.font = label.font
+        auxLabel.textAlignment = label.textAlignment
+        auxLabel.textColor = label.textColor
+        auxLabel.backgroundColor = .clear
+        
+        auxLabel.transform = CGAffineTransform(translationX: offset.x, y: offset.y)
+        auxLabel.alpha = 0
+        view.addSubview(auxLabel)
+        
+        UIView.animate(withDuration: 1, delay: 0.0, options: [.repeat, .curveEaseIn]) {
+            label.transform = CGAffineTransform(translationX: offset.x, y: offset.y)
+            label.alpha = 0.0
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: [.repeat, .curveEaseIn], animations: {
+            auxLabel.transform = .identity
+            auxLabel.alpha = 1.0
+        }, completion: { _ in
+            auxLabel.removeFromSuperview()
+            label.text = text
+            label.alpha = 1.0
+            label.transform = .identity
+        })
+    }
+
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />

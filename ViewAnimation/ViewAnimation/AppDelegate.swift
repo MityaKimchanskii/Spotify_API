@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = ViewController()
 //        window?.rootViewController = CrossfadingAnimation()
-        window?.rootViewController = CubeTransition()
+//        window?.rootViewController = CubeTransition()
+        window?.rootViewController = FadeAndBounceTransitions()
         window?.makeKeyAndVisible()
         
         return true

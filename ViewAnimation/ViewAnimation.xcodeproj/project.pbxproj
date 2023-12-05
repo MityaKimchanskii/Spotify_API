@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */; };
+		3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */; };
 		F109BD412B1BE2E600034127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109BD402B1BE2E600034127 /* AppDelegate.swift */; };
 		F109BD452B1BE2E600034127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109BD442B1BE2E600034127 /* ViewController.swift */; };
 		F109BD4A2B1BE2E700034127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F109BD492B1BE2E700034127 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTransition.swift; sourceTree = "<group>"; };
+		3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAndBounceTransitions.swift; sourceTree = "<group>"; };
 		F109BD3D2B1BE2E600034127 /* ViewAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F109BD402B1BE2E600034127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F109BD442B1BE2E600034127 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,11 +60,12 @@
 			children = (
 				F109BD402B1BE2E600034127 /* AppDelegate.swift */,
 				F109BD442B1BE2E600034127 /* ViewController.swift */,
+				3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */,
+				3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */,
 				F109BD542B1D853B00034127 /* CrossfadingAnimation.swift */,
 				F109BD492B1BE2E700034127 /* Assets.xcassets */,
 				F109BD4B2B1BE2E700034127 /* LaunchScreen.storyboard */,
 				F109BD4E2B1BE2E700034127 /* Info.plist */,
-				3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */,
 			);
 			path = ViewAnimation;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */,
 				F109BD452B1BE2E600034127 /* ViewController.swift in Sources */,
 				F109BD412B1BE2E600034127 /* AppDelegate.swift in Sources */,
+				3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
