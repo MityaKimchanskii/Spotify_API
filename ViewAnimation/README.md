@@ -1,4 +1,4 @@
-# UIViewAnimation
+# UIView Animation
 
 ## animate(withDuration:delay:options:animations:)
 
@@ -234,3 +234,26 @@ UIViewKeyFrameAnimationOptions enumeration
     
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+# Core Animanimation
+
+Animatable properties :
+ - position and size
+    - bounds
+    - position
+    - transform
+ - border
+    - borderColor
+    - cornerRadius
+    - borderWidth
+ - shadow
+    - shadowOffset: appear closer or away
+    - shadowOpacity: shadow fade in or out
+    - shadowRadius: control the blur of the shadow
+ - contents
+    - contents: modify to assign raw TIFF or PNG data as the layer contents
+    - mask: establish the shape
+    - opacity: animate the transparency
+
+A `CABasicAnimation` object is just a data model, which is not bound to any particular layer.
+`add(_:forKey:)` makes a copy of the animation object. 

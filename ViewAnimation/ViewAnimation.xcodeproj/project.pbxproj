@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */; };
+		3BE7A2A92B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */; };
 		3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */; };
 		3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */; };
 		3BEBE9132B1F020900848B8B /* KeyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE9122B1F020900848B8B /* KeyFrame.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutAnimation.swift; sourceTree = "<group>"; };
+		3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicsOfCALayuerAndCoreAnimation.swift; sourceTree = "<group>"; };
 		3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTransition.swift; sourceTree = "<group>"; };
 		3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAndBounceTransitions.swift; sourceTree = "<group>"; };
 		3BEBE9122B1F020900848B8B /* KeyFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFrame.swift; sourceTree = "<group>"; };
@@ -43,6 +45,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BE7A2AA2B1FEFB600FCD4FD /* UIKitAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				F109BD442B1BE2E600034127 /* ViewController.swift */,
+				3BEBE9122B1F020900848B8B /* KeyFrame.swift */,
+				3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */,
+				3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */,
+				F109BD542B1D853B00034127 /* CrossfadingAnimation.swift */,
+				3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */,
+			);
+			path = UIKitAnimation;
+			sourceTree = "<group>";
+		};
+		3BE7A2AB2B1FEFE800FCD4FD /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				F109BD402B1BE2E600034127 /* AppDelegate.swift */,
+				F109BD492B1BE2E700034127 /* Assets.xcassets */,
+				F109BD4B2B1BE2E700034127 /* LaunchScreen.storyboard */,
+				F109BD4E2B1BE2E700034127 /* Info.plist */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
+		3BE7A2AC2B1FF00400FCD4FD /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
 		F109BD342B1BE2E600034127 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +96,9 @@
 		F109BD3F2B1BE2E600034127 /* ViewAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				F109BD402B1BE2E600034127 /* AppDelegate.swift */,
-				3BEBE9122B1F020900848B8B /* KeyFrame.swift */,
-				F109BD442B1BE2E600034127 /* ViewController.swift */,
-				3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */,
-				3BEBE9102B1EF6B100848B8B /* FadeAndBounceTransitions.swift */,
-				F109BD542B1D853B00034127 /* CrossfadingAnimation.swift */,
-				3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */,
-				F109BD492B1BE2E700034127 /* Assets.xcassets */,
-				F109BD4B2B1BE2E700034127 /* LaunchScreen.storyboard */,
-				F109BD4E2B1BE2E700034127 /* Info.plist */,
+				3BE7A2AA2B1FEFB600FCD4FD /* UIKitAnimation */,
+				3BE7A2AC2B1FF00400FCD4FD /* CoreAnimation */,
+				3BE7A2AB2B1FEFE800FCD4FD /* Files */,
 			);
 			path = ViewAnimation;
 			sourceTree = "<group>";
@@ -151,6 +178,7 @@
 				F109BD452B1BE2E600034127 /* ViewController.swift in Sources */,
 				3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */,
 				F109BD412B1BE2E600034127 /* AppDelegate.swift in Sources */,
+				3BE7A2A92B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift in Sources */,
 				3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */,
 				3BEBE9132B1F020900848B8B /* KeyFrame.swift in Sources */,
 			);
