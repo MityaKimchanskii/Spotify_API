@@ -383,4 +383,4 @@ CAAnimation and its subclass CABasicAnimation implement the delegate pattern and
 
 Call `removeAllAnimations()` on the layer to stop all running animations or `removeAnimation(forKey:)` to remove just one.
 
-<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/8.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/9.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
