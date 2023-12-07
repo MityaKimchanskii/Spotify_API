@@ -171,15 +171,16 @@ extension BasicsOfCALayuerAndCoreAnimation {
         rightMove.fromValue = -view.bounds.size.width/2
         rightMove.toValue = view.bounds.size.width/2
         rightMove.duration = 3
+        rightMove.fillMode = CAMediaTimingFillMode.both
         titleLabel.layer.add(rightMove, forKey: nil)
         
         rightMove.beginTime = CACurrentMediaTime()+1
         usernameTexField.layer.add(rightMove, forKey: nil)
         usernameTexField.isHidden = false
-        
+       
         rightMove.beginTime = CACurrentMediaTime()+2
         passwordTextField.layer.add(rightMove, forKey: nil)
-
+        passwordTextField.isHidden = false
     }
 
     private func cloudAnimation(cloud: UIImageView, delay: TimeInterval) {

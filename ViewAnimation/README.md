@@ -257,3 +257,37 @@ Animatable properties :
 
 A `CABasicAnimation` object is just a data model, which is not bound to any particular layer.
 `add(_:forKey:)` makes a copy of the animation object. 
+
+
+```swift
+    
+    private func basicAnimation() {
+        let rightMove = CABasicAnimation(keyPath: "position.x")
+        rightMove.fromValue = -view.bounds.size.width/2
+        rightMove.toValue = view.bounds.size.width/2
+        rightMove.duration = 3
+        rightMove.fillMode = CAMediaTimingFillMode.both
+        titleLabel.layer.add(rightMove, forKey: nil)
+        
+        rightMove.beginTime = CACurrentMediaTime()+1
+        usernameTexField.layer.add(rightMove, forKey: nil)
+        usernameTexField.isHidden = false
+       
+        rightMove.beginTime = CACurrentMediaTime()+2
+        passwordTextField.layer.add(rightMove, forKey: nil)
+        passwordTextField.isHidden = false
+    }
+    
+```
+    - fromValue: position at the beginning of the animation
+    - toValue: position at the end of the animation
+    - duration: duration of the animation
+    - beginTime: specific time when to start the animation
+    - .layer.add(rightMove, forKey: nil): method to animate layer
+    - CAMediaTimingFillMode: very important property, because it controls the behavior at the beginnigd and at the end.
+        it has a three values:
+            - forwards: retains the final frame
+            - backwards: displays the first frame of your animation instantly on the screen, regardless of the actual start time of the animation, and starts the animation at a later time
+            - both: combination forwards and backwards
+   
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
