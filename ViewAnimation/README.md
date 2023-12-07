@@ -119,7 +119,7 @@ The properties like size and center are mutable so we can move verticaly and hor
 
 ```swift
 
-        private func cubeTransition(label: UILabel, text: String, direction: AnimationDirection) {
+    private func cubeTransition(label: UILabel, text: String, direction: AnimationDirection) {
         let auxLabel = UILabel(frame: label.frame)
         auxLabel.text = text
         auxLabel.font = label.font
@@ -279,6 +279,7 @@ A `CABasicAnimation` object is just a data model, which is not bound to any part
     }
     
 ```
+
     - fromValue: position at the beginning of the animation
     - toValue: position at the end of the animation
     - duration: duration of the animation
@@ -289,5 +290,28 @@ A `CABasicAnimation` object is just a data model, which is not bound to any part
             - forwards: retains the final frame
             - backwards: displays the first frame of your animation instantly on the screen, regardless of the actual start time of the animation, and starts the animation at a later time
             - both: combination forwards and backwards
+            - remove: removes visible representation from the screen ("phantom"). By default is true.
    
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+fade in effect for clouds:
+
+```swift
+
+    private func cloudAnimation() {
+        let fadeIn = CABasicAnimation(keyPath: "opacity")
+        fadeIn.fromValue = 0.0
+        fadeIn.toValue = 1.0
+        fadeIn.duration = 3
+        fadeIn.fillMode = CAMediaTimingFillMode.backwards
+        cloudImage1.layer.add(fadeIn, forKey: nil)
+        
+        fadeIn.beginTime = CACurrentMediaTime()+1
+        cloudImage2.layer.add(fadeIn, forKey: nil)
+        
+        fadeIn.beginTime = CACurrentMediaTime()+2
+        cloudImage3.layer.add(fadeIn, forKey: nil)
+    }
+
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/8.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />

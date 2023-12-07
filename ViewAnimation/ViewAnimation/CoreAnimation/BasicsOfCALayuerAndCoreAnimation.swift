@@ -40,7 +40,7 @@ class BasicsOfCALayuerAndCoreAnimation: UIViewController {
         super.viewDidAppear(animated)
         
         basicAnimation()
-       
+        cloudAnimation()
     }
 }
 
@@ -56,8 +56,6 @@ extension BasicsOfCALayuerAndCoreAnimation {
         usernameTexField.translatesAutoresizingMaskIntoConstraints = false
         usernameTexField.placeholder = " Username"
         usernameTexField.backgroundColor = .white
-        usernameTexField.isHidden = true
-        
         
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = " Password"
@@ -101,7 +99,6 @@ extension BasicsOfCALayuerAndCoreAnimation {
         statusImageView.image = UIImage(named: "status")
         statusImageView.layer.cornerRadius = 8
         statusImageView.clipsToBounds = true
-//        statusImageView.isHidden = true
         statusImageView.addSubview(messageLabel)
     }
     
@@ -176,14 +173,23 @@ extension BasicsOfCALayuerAndCoreAnimation {
         
         rightMove.beginTime = CACurrentMediaTime()+1
         usernameTexField.layer.add(rightMove, forKey: nil)
-        usernameTexField.isHidden = false
-       
+     
         rightMove.beginTime = CACurrentMediaTime()+2
         passwordTextField.layer.add(rightMove, forKey: nil)
-        passwordTextField.isHidden = false
     }
 
-    private func cloudAnimation(cloud: UIImageView, delay: TimeInterval) {
-       
+    private func cloudAnimation() {
+        let fadeIn = CABasicAnimation(keyPath: "opacity")
+        fadeIn.fromValue = 0.0
+        fadeIn.toValue = 1.0
+        fadeIn.duration = 3
+        fadeIn.fillMode = CAMediaTimingFillMode.backwards
+        cloudImage1.layer.add(fadeIn, forKey: nil)
+        
+        fadeIn.beginTime = CACurrentMediaTime()+1
+        cloudImage2.layer.add(fadeIn, forKey: nil)
+        
+        fadeIn.beginTime = CACurrentMediaTime()+2
+        cloudImage3.layer.add(fadeIn, forKey: nil)
     }
 }
