@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = FadeAndBounceTransitions()
 //        window?.rootViewController = KeyFrame()
 //        window?.rootViewController = AutoLayoutAnimation()
-        window?.rootViewController = BasicsOfCALayuerAndCoreAnimation()
-//        window?.rootViewController = AnimationKeysAndDelegates()
+//        window?.rootViewController = BasicsOfCALayuerAndCoreAnimation()
+        window?.rootViewController = SpringAnimation()
         window?.makeKeyAndVisible()
         
         return true

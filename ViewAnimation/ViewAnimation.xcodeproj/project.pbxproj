@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B1AF1592B216740005BB362 /* AnimationKeysAndDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AF1582B216740005BB362 /* AnimationKeysAndDelegates.swift */; };
+		3B1AF1592B216740005BB362 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AF1582B216740005BB362 /* SpringAnimation.swift */; };
 		3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */; };
 		3BE7A2A92B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */; };
 		3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */; };
@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B1AF1582B216740005BB362 /* AnimationKeysAndDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationKeysAndDelegates.swift; sourceTree = "<group>"; };
+		3B1AF1582B216740005BB362 /* SpringAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
 		3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutAnimation.swift; sourceTree = "<group>"; };
 		3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicsOfCALayuerAndCoreAnimation.swift; sourceTree = "<group>"; };
 		3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTransition.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */,
-				3B1AF1582B216740005BB362 /* AnimationKeysAndDelegates.swift */,
+				3B1AF1582B216740005BB362 /* SpringAnimation.swift */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */,
-				3B1AF1592B216740005BB362 /* AnimationKeysAndDelegates.swift in Sources */,
+				3B1AF1592B216740005BB362 /* SpringAnimation.swift in Sources */,
 				3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */,
 				F109BD452B1BE2E600034127 /* ViewController.swift in Sources */,
 				3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */,

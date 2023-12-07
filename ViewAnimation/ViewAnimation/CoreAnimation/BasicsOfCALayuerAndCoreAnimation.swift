@@ -40,13 +40,13 @@ class BasicsOfCALayuerAndCoreAnimation: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
         basicAnimation()
         fadeInLabelAnimation()
         cloudAnimation(layer: cloudImage1.layer)
         cloudAnimation(layer: cloudImage2.layer)
         cloudAnimation(layer: cloudImage3.layer)
         cloudFadeInAnimation()
+        
     }
 }
 
@@ -78,6 +78,7 @@ extension BasicsOfCALayuerAndCoreAnimation {
         loginButton.addSubview(activityIndicator)
         loginButton.layer.cornerRadius = 5
         loginButton.clipsToBounds = true
+        loginButton.center.y += 30
         
         cloudImage1.translatesAutoresizingMaskIntoConstraints = false
         cloudImage1.image = UIImage(systemName: "cloud.fill")
@@ -177,7 +178,26 @@ extension BasicsOfCALayuerAndCoreAnimation {
     }
 
     @objc private func loginButtonTapped() {
-       
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        groupAnimation.beginTime = CACurrentMediaTime()+0.5
+        groupAnimation.duration = 0.5
+        groupAnimation.fillMode = CAMediaTimingFillMode.backwards
+        
+        let scaleDown = CABasicAnimation(keyPath: "transform.scale")
+        scaleDown.fromValue = 3.5
+        scaleDown.toValue = 1
+        
+        let rotate = CABasicAnimation(keyPath: "transform.rotation")
+        rotate.fromValue = Double.pi/4
+        rotate.toValue = 0
+        
+        let fade = CABasicAnimation(keyPath: "opacity")
+        fade.fromValue = 0
+        fade.toValue = 1
+        
+        groupAnimation.animations = [scaleDown, rotate, fade]
+        loginButton.layer.add(groupAnimation, forKey: nil)
     }
 
     private func basicAnimation() {
@@ -209,6 +229,7 @@ extension BasicsOfCALayuerAndCoreAnimation {
         cloudMove.delegate = self
         cloudMove.setValue("cloud", forKey: "name")
         cloudMove.setValue(layer, forKey: "layer")
+        cloudMove.repeatCount = .infinity
         layer.add(cloudMove, forKey: nil)
         
     }
@@ -233,12 +254,15 @@ extension BasicsOfCALayuerAndCoreAnimation {
         leftMove.fromValue = infoLabel.layer.position.x + view.frame.size.width
         leftMove.toValue = infoLabel.layer.position.x
         leftMove.duration = 5
+        leftMove.repeatCount = .infinity
         infoLabel.layer.add(leftMove, forKey: "infoappear")
         
         let fadeLabelIn = CABasicAnimation(keyPath: "opacity")
         fadeLabelIn.fromValue = 0.1
         fadeLabelIn.toValue = 1
         fadeLabelIn.duration = 5
+        fadeLabelIn.autoreverses = true
+        fadeLabelIn.repeatCount = .infinity
         infoLabel.layer.add(fadeLabelIn, forKey: "fadein")
         
         titleLabel.layer.add(fadeLabelIn, forKey: "fadein")

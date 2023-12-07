@@ -384,3 +384,72 @@ CAAnimation and its subclass CABasicAnimation implement the delegate pattern and
 Call `removeAllAnimations()` on the layer to stop all running animations or `removeAnimation(forKey:)` to remove just one.
 
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/9.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+## CAAnimationGroup and Animation easing
+        CAMediaTimingFunctionName.easeInEaseOut
+        CAMediaTimingFunctionName.easeIn
+        CAMediaTimingFunctionName.easeOut
+        CAMediaTimingFunctionName.linear
+
+```swift
+
+    @objc private func loginButtonTapped() {
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        groupAnimation.beginTime = CACurrentMediaTime()+0.5
+        groupAnimation.duration = 0.5
+        groupAnimation.fillMode = CAMediaTimingFillMode.backwards
+        
+        let scaleDown = CABasicAnimation(keyPath: "transform.scale")
+        scaleDown.fromValue = 3.5
+        scaleDown.toValue = 1
+        
+        let rotate = CABasicAnimation(keyPath: "transform.rotation")
+        rotate.fromValue = Double.pi/4
+        rotate.toValue = 0
+        
+        let fade = CABasicAnimation(keyPath: "opacity")
+        fade.fromValue = 0
+        fade.toValue = 1
+        
+        groupAnimation.animations = [scaleDown, rotate, fade]
+        loginButton.layer.add(groupAnimation, forKey: nil)
+    }
+
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/10.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## Layer Springs CASpringAnimation class
+Damped harmonic oscillator systems are what drive the spring animations in iOS. 
+- dumping: 10
+- mass: 1.0
+- stiffness: 100.0
+- initialVelocity: 0.0 the initial push
+
+```swift
+
+    @objc private func buttonTapped() {
+        let jump = CASpringAnimation(keyPath: "position.y")
+        jump.initialVelocity = 100
+        jump.mass = 10
+        jump.stiffness = 1500
+        jump.damping = 50
+        jump.fromValue = button.layer.position.y + 30
+        jump.toValue = button.layer.position.y
+        jump.duration = jump.settlingDuration
+        
+        button.layer.add(jump, forKey: nil)
+    }
+    
+    private func flashButton() {
+        let flash = CASpringAnimation(keyPath: "borderColor")
+        flash.damping = 5
+        flash.stiffness = 1
+        flash.fromValue = UIColor.red.cgColor
+        flash.toValue = UIColor.blue.cgColor
+        flash.duration = flash.settlingDuration
+        flash.repeatCount = .infinity
+        button.layer.add(flash, forKey: nil)
+    }
+    
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/11.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
