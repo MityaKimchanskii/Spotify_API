@@ -22,6 +22,7 @@ class BasicsOfCALayuerAndCoreAnimation: UIViewController {
     private let activityIndicator = UIActivityIndicatorView()
     private let statusImageView = UIImageView()
     private let messageLabel = UILabel()
+    private let infoLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +34,19 @@ class BasicsOfCALayuerAndCoreAnimation: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-       
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
         basicAnimation()
-        cloudAnimation()
+        fadeInLabelAnimation()
+        cloudAnimation(layer: cloudImage1.layer)
+        cloudAnimation(layer: cloudImage2.layer)
+        cloudAnimation(layer: cloudImage3.layer)
+        cloudFadeInAnimation()
     }
 }
 
@@ -100,6 +106,13 @@ extension BasicsOfCALayuerAndCoreAnimation {
         statusImageView.layer.cornerRadius = 8
         statusImageView.clipsToBounds = true
         statusImageView.addSubview(messageLabel)
+        
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        infoLabel.backgroundColor = .clear
+        infoLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        infoLabel.textAlignment = .center
+        infoLabel.textColor = .white
+        infoLabel.text = "Tap on a field and enter username and password"
     }
     
     private func layout() {
@@ -111,6 +124,7 @@ extension BasicsOfCALayuerAndCoreAnimation {
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
         view.addSubview(statusImageView)
+        view.addSubview(infoLabel)
         
         NSLayoutConstraint.activate([
             cloudImage1.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 9),
@@ -146,6 +160,9 @@ extension BasicsOfCALayuerAndCoreAnimation {
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             loginButton.widthAnchor.constraint(equalToConstant: 180),
             
+            infoLabel.topAnchor.constraint(equalToSystemSpacingBelow: loginButton.bottomAnchor, multiplier: 1),
+            infoLabel.centerXAnchor.constraint(equalTo: loginButton.centerXAnchor),
+            
             activityIndicator.centerYAnchor.constraint(equalTo: loginButton.centerYAnchor),
             activityIndicator.leadingAnchor.constraint(equalToSystemSpacingAfter: loginButton.leadingAnchor, multiplier: 2),
             
@@ -165,20 +182,38 @@ extension BasicsOfCALayuerAndCoreAnimation {
 
     private func basicAnimation() {
         let rightMove = CABasicAnimation(keyPath: "position.x")
+        rightMove.delegate = self
         rightMove.fromValue = -view.bounds.size.width/2
         rightMove.toValue = view.bounds.size.width/2
         rightMove.duration = 3
         rightMove.fillMode = CAMediaTimingFillMode.both
+        rightMove.setValue("form", forKey: "name")
         titleLabel.layer.add(rightMove, forKey: nil)
         
         rightMove.beginTime = CACurrentMediaTime()+1
+        rightMove.setValue(usernameTexField.layer, forKey: "layer")
         usernameTexField.layer.add(rightMove, forKey: nil)
      
         rightMove.beginTime = CACurrentMediaTime()+2
+        rightMove.setValue(passwordTextField.layer, forKey: "layer")
         passwordTextField.layer.add(rightMove, forKey: nil)
     }
 
-    private func cloudAnimation() {
+    private func cloudAnimation(layer: CALayer) {
+        let cloudSpeed = 60 / Double(view.layer.frame.size.width)
+        let duration: TimeInterval = Double(view.layer.frame.size.width - layer.frame.origin.x) * cloudSpeed
+        
+        let cloudMove = CABasicAnimation(keyPath: "position.x")
+        cloudMove.duration = duration
+        cloudMove.toValue = self.view.bounds.width + layer.bounds.width / 2
+        cloudMove.delegate = self
+        cloudMove.setValue("cloud", forKey: "name")
+        cloudMove.setValue(layer, forKey: "layer")
+        layer.add(cloudMove, forKey: nil)
+        
+    }
+    
+    private func cloudFadeInAnimation() {
         let fadeIn = CABasicAnimation(keyPath: "opacity")
         fadeIn.fromValue = 0.0
         fadeIn.toValue = 1.0
@@ -191,5 +226,42 @@ extension BasicsOfCALayuerAndCoreAnimation {
         
         fadeIn.beginTime = CACurrentMediaTime()+2
         cloudImage3.layer.add(fadeIn, forKey: nil)
+    }
+    
+    private func fadeInLabelAnimation() {
+        let leftMove = CABasicAnimation(keyPath: "position.x")
+        leftMove.fromValue = infoLabel.layer.position.x + view.frame.size.width
+        leftMove.toValue = infoLabel.layer.position.x
+        leftMove.duration = 5
+        infoLabel.layer.add(leftMove, forKey: "infoappear")
+        
+        let fadeLabelIn = CABasicAnimation(keyPath: "opacity")
+        fadeLabelIn.fromValue = 0.1
+        fadeLabelIn.toValue = 1
+        fadeLabelIn.duration = 5
+        infoLabel.layer.add(fadeLabelIn, forKey: "fadein")
+        
+        titleLabel.layer.add(fadeLabelIn, forKey: "fadein")
+    }
+}
+
+extension BasicsOfCALayuerAndCoreAnimation: CAAnimationDelegate {
+    func animationDidStart(_ anim: CAAnimation) {
+        
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        guard let name = anim.value(forKey: "name") as? String else { return }
+        
+        if name == "form" {
+            let layer = anim.value(forKey: "layer") as? CALayer
+            anim.setValue(nil, forKey: "layer")
+            
+            let pulse = CABasicAnimation(keyPath: "transform.scale")
+            pulse.fromValue = 1.25
+            pulse.toValue = 1
+            pulse.duration = 3
+            layer?.add(pulse, forKey: nil)
+        }
     }
 }

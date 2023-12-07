@@ -280,6 +280,8 @@ A `CABasicAnimation` object is just a data model, which is not bound to any part
     
 ```
 
+## Layer animation
+
     - fromValue: position at the beginning of the animation
     - toValue: position at the end of the animation
     - duration: duration of the animation
@@ -288,7 +290,8 @@ A `CABasicAnimation` object is just a data model, which is not bound to any part
     - CAMediaTimingFillMode: very important property, because it controls the behavior at the beginnigd and at the end.
         it has a three values:
             - forwards: retains the final frame
-            - backwards: displays the first frame of your animation instantly on the screen, regardless of the actual start time of the animation, and starts the animation at a later time
+            - backwards: displays the first frame of your animation instantly on the screen, 
+                regardless of the actual start time of the animation, and starts the animation at a later time
             - both: combination forwards and backwards
             - remove: removes visible representation from the screen ("phantom"). By default is true.
    
@@ -298,7 +301,7 @@ fade in effect for clouds:
 
 ```swift
 
-    private func cloudAnimation() {
+    private func cloudFadeInAnimation() {
         let fadeIn = CABasicAnimation(keyPath: "opacity")
         fadeIn.fromValue = 0.0
         fadeIn.toValue = 1.0
@@ -312,6 +315,72 @@ fade in effect for clouds:
         fadeIn.beginTime = CACurrentMediaTime()+2
         cloudImage3.layer.add(fadeIn, forKey: nil)
     }
+    
+    private func cloudAnimation(layer: CALayer) {
+        let cloudSpeed = 60 / Double(view.layer.frame.size.width)
+        let duration: TimeInterval = Double(view.layer.frame.size.width - layer.frame.origin.x) * cloudSpeed
+        
+        let cloudMove = CABasicAnimation(keyPath: "position.x")
+        cloudMove.duration = duration
+        cloudMove.toValue = self.view.bounds.width + layer.bounds.width / 2
+        cloudMove.delegate = self
+        cloudMove.setValue("cloud", forKey: "name")
+        cloudMove.setValue(layer, forKey: "layer")
+        layer.add(cloudMove, forKey: nil)
+        
+    }
+    
+    private func fadeInLabelAnimation() {
+        let leftMove = CABasicAnimation(keyPath: "position.x")
+        leftMove.fromValue = infoLabel.layer.position.x + view.frame.size.width
+        leftMove.toValue = infoLabel.layer.position.x
+        leftMove.duration = 5
+        infoLabel.layer.add(leftMove, forKey: "infoappear")
+        
+        let fadeLabelIn = CABasicAnimation(keyPath: "opacity")
+        fadeLabelIn.fromValue = 0.1
+        fadeLabelIn.toValue = 1
+        fadeLabelIn.duration = 5
+        infoLabel.layer.add(fadeLabelIn, forKey: "fadein")
+        
+        titleLabel.layer.add(fadeLabelIn, forKey: "fadein")
+    }
 
 ```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/8.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## Animation Kes and Delegates
+
+Core Animation gives opportunity react to animation events, we can receive delegate callbacks for when an animations begins and ends.
+CAAnimation and its subclass CABasicAnimation implement the delegate pattern and let you respond to animation events.
+
+`CAAnimationDelegate`:
+
+```swift
+
+    extension BasicsOfCALayuerAndCoreAnimation: CAAnimationDelegate {
+        func animationDidStart(_ anim: CAAnimation) {
+            print("animation did start")
+        }
+    
+        func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+            guard let name = anim.value(forKey: "name") as? String else { return }
+        
+            if name == "form" {
+                let layer = anim.value(forKey: "layer") as? CALayer
+                anim.setValue(nil, forKey: "layer")
+            
+                let pulse = CABasicAnimation(keyPath: "transform.scale")
+                pulse.fromValue = 1.25
+                pulse.toValue = 1
+                pulse.duration = 3
+                layer?.add(pulse, forKey: nil)
+            }
+        }
+    }
+
+```
+
+Call `removeAllAnimations()` on the layer to stop all running animations or `removeAnimation(forKey:)` to remove just one.
+
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/8.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
