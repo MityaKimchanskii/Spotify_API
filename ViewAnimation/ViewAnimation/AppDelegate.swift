@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = KeyFrame()
 //        window?.rootViewController = AutoLayoutAnimation()
 //        window?.rootViewController = BasicsOfCALayuerAndCoreAnimation()
-        window?.rootViewController = SpringAndKeyframeAnimation()
+//        window?.rootViewController = SpringAndKeyframeAnimation()
+        window?.rootViewController = ShapesAndMasksViewController()
         window?.makeKeyAndVisible()
         
         return true

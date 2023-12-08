@@ -495,3 +495,10 @@ Animating struct values
 
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/12.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## Shapes and masks
+- path: Morph the layer's shape into a different shape
+- lineDashPhase: effect around the shape
+- lineWidth: grow or shink the size of the stroke line of your shape
+
+
