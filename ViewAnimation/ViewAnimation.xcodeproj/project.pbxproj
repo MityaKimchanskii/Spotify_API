@@ -21,6 +21,8 @@
 		F16E89A82B23B15400F64AF6 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89A72B23B15400F64AF6 /* AvatarView.swift */; };
 		F16E89AA2B23B95000F64AF6 /* ShapesAndMasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89A92B23B95000F64AF6 /* ShapesAndMasksViewController.swift */; };
 		F16E89AC2B23C74F00F64AF6 /* GradientAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */; };
+		F16E89AF2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */; };
+		F16E89B22B23CF1D00F64AF6 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89B12B23CF1D00F64AF6 /* RefreshView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		F16E89A72B23B15400F64AF6 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarView.swift; path = ViewAnimation/AvatarView.swift; sourceTree = SOURCE_ROOT; };
 		F16E89A92B23B95000F64AF6 /* ShapesAndMasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesAndMasksViewController.swift; sourceTree = "<group>"; };
 		F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientAnimationViewController.swift; sourceTree = "<group>"; };
+		F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAndPathAnimationViewController.swift; sourceTree = "<group>"; };
+		F16E89B12B23CF1D00F64AF6 /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +84,11 @@
 		3BE7A2AC2B1FF00400FCD4FD /* CoreAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */,
 				3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */,
 				3B1AF1582B216740005BB362 /* SpringAndKeyframeAnimation.swift */,
-				F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */,
+				F16E89AD2B23CB1E00F64AF6 /* GradientAnimation */,
+				F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */,
+				F16E89B02B23CEB900F64AF6 /* StrokeAndPathAnimation */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -121,6 +126,23 @@
 				F16E89A92B23B95000F64AF6 /* ShapesAndMasksViewController.swift */,
 			);
 			path = ShapesAndMasks;
+			sourceTree = "<group>";
+		};
+		F16E89AD2B23CB1E00F64AF6 /* GradientAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */,
+			);
+			path = GradientAnimation;
+			sourceTree = "<group>";
+		};
+		F16E89B02B23CEB900F64AF6 /* StrokeAndPathAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */,
+				F16E89B12B23CF1D00F64AF6 /* RefreshView.swift */,
+			);
+			path = StrokeAndPathAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16E89B22B23CF1D00F64AF6 /* RefreshView.swift in Sources */,
 				F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */,
 				3B1AF1592B216740005BB362 /* SpringAndKeyframeAnimation.swift in Sources */,
 				3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */,
@@ -201,6 +224,7 @@
 				3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */,
 				F109BD412B1BE2E600034127 /* AppDelegate.swift in Sources */,
 				3BE7A2A92B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift in Sources */,
+				F16E89AF2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift in Sources */,
 				F16E89AA2B23B95000F64AF6 /* ShapesAndMasksViewController.swift in Sources */,
 				F16E89AC2B23C74F00F64AF6 /* GradientAnimationViewController.swift in Sources */,
 				3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */,
