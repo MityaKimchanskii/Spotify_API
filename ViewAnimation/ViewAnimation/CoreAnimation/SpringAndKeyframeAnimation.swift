@@ -8,7 +8,7 @@
 import UIKit
 
 
-class SpringAnimation: UIViewController {
+class SpringAndKeyframeAnimation: UIViewController {
     
     private let button = UIButton()
     private let label = UILabel()
@@ -20,11 +20,12 @@ class SpringAnimation: UIViewController {
         style()
         layout()
         flashButton()
+        flight()
     }
 }
 
 // MARK: - Extensions
-extension SpringAnimation {
+extension SpringAndKeyframeAnimation {
     
     private func style() {
         view.backgroundColor = .yellow
@@ -91,12 +92,33 @@ extension SpringAnimation {
     
     private func flashButton() {
         let flash = CASpringAnimation(keyPath: "borderColor")
-        flash.damping = 5
-        flash.stiffness = 1
+        flash.damping = 50
+        flash.stiffness = 10
         flash.fromValue = UIColor.red.cgColor
         flash.toValue = UIColor.blue.cgColor
         flash.duration = flash.settlingDuration
         flash.repeatCount = .infinity
         button.layer.add(flash, forKey: nil)
+    }
+    
+    private func flight() {
+        let balloon = CALayer()
+        balloon.contents = UIImage(systemName: "balloon.fill")?.cgImage
+        
+        balloon.frame = CGRect(x: -50, y: 0, width: 60, height: 120)
+        view.layer.insertSublayer(balloon, below: label.layer)
+        
+        let flight = CAKeyframeAnimation(keyPath: "position")
+        flight.duration = 12
+        flight.values = [
+            CGPoint(x: view.frame.width, y: 820),
+            CGPoint(x: -50.0, y: 360.0),
+            CGPoint(x: view.frame.width, y: 0.0),
+        ].map { NSValue(cgPoint: $0) }
+        flight.keyTimes = [0.0, 0.5, 1.0]
+        
+        balloon.add(flight, forKey: nil)
+        
+        balloon.position = CGPoint(x: -50.0, y: button.center.y)
     }
 }

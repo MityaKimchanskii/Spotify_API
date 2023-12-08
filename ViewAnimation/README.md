@@ -454,3 +454,43 @@ Damped harmonic oscillator systems are what drive the spring animations in iOS.
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/11.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 ## Layer keyframe animations CAKeyframeAnimation
+
+```swift
+
+    let wobble = CAKeyframeAnimation(keyPath: "transform.rotation")
+    wobble.duration = 3
+    wobble.repeatCount = 5
+    wobble.values = [0.0, 90, 180, 270, 360]
+    wobble.keyTimes = [0, 0.25, 0.75, 1]
+        
+    label.layer.add(wobble, forKey: nil)
+    
+```
+
+Animating struct values
+
+```swift
+
+    private func flight() {
+        let balloon = CALayer()
+        balloon.contents = UIImage(systemName: "balloon.fill")?.cgImage
+        
+        balloon.frame = CGRect(x: -50, y: 0, width: 60, height: 120)
+        view.layer.insertSublayer(balloon, below: label.layer)
+        
+        let flight = CAKeyframeAnimation(keyPath: "position")
+        flight.duration = 12
+        flight.values = [
+            CGPoint(x: view.frame.width, y: 820),
+            CGPoint(x: -50.0, y: 360.0),
+            CGPoint(x: view.frame.width, y: 0.0),
+        ].map { NSValue(cgPoint: $0) }
+        flight.keyTimes = [0.0, 0.5, 1.0]
+        
+        balloon.add(flight, forKey: nil)
+        
+        balloon.position = CGPoint(x: -50.0, y: button.center.y)
+    }
+
+```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/12.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
