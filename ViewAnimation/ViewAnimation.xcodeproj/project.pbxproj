@@ -22,7 +22,7 @@
 		F16E89AA2B23B95000F64AF6 /* ShapesAndMasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89A92B23B95000F64AF6 /* ShapesAndMasksViewController.swift */; };
 		F16E89AC2B23C74F00F64AF6 /* GradientAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */; };
 		F16E89AF2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */; };
-		F16E89B22B23CF1D00F64AF6 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89B12B23CF1D00F64AF6 /* RefreshView.swift */; };
+		F16E89B22B23CF1D00F64AF6 /* StrokeAndPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89B12B23CF1D00F64AF6 /* StrokeAndPathView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +43,7 @@
 		F16E89A92B23B95000F64AF6 /* ShapesAndMasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesAndMasksViewController.swift; sourceTree = "<group>"; };
 		F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientAnimationViewController.swift; sourceTree = "<group>"; };
 		F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAndPathAnimationViewController.swift; sourceTree = "<group>"; };
-		F16E89B12B23CF1D00F64AF6 /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
+		F16E89B12B23CF1D00F64AF6 /* StrokeAndPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAndPathView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */,
-				F16E89B12B23CF1D00F64AF6 /* RefreshView.swift */,
+				F16E89B12B23CF1D00F64AF6 /* StrokeAndPathView.swift */,
 			);
 			path = StrokeAndPathAnimation;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F16E89B22B23CF1D00F64AF6 /* RefreshView.swift in Sources */,
+				F16E89B22B23CF1D00F64AF6 /* StrokeAndPathView.swift in Sources */,
 				F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */,
 				3B1AF1592B216740005BB362 /* SpringAndKeyframeAnimation.swift in Sources */,
 				3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */,
