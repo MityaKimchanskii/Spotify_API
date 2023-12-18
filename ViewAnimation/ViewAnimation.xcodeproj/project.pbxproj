@@ -86,9 +86,9 @@
 			children = (
 				3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */,
 				3B1AF1582B216740005BB362 /* SpringAndKeyframeAnimation.swift */,
-				F16E89AD2B23CB1E00F64AF6 /* GradientAnimation */,
-				F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */,
 				F16E89B02B23CEB900F64AF6 /* StrokeAndPathAnimation */,
+				F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */,
+				F16E89AD2B23CB1E00F64AF6 /* GradientAnimation */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";

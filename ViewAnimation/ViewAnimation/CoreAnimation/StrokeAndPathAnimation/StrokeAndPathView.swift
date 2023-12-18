@@ -20,7 +20,6 @@ class StrokeAndPathView: UIView {
         
         style()
         layout()
-//        startAnimation()
     }
     
     required init?(coder: NSCoder) {
@@ -29,38 +28,9 @@ class StrokeAndPathView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        ovalShapeLayer.strokeColor = UIColor.white.cgColor
-        ovalShapeLayer.fillColor = UIColor.clear.cgColor
-        ovalShapeLayer.lineWidth = 5
-        ovalShapeLayer.lineDashPattern = [10, 2]
-        
-        let refreshRadius = frame.size.height/2*0.8
-        ovalShapeLayer.path = UIBezierPath(ovalIn: CGRect(
-            x: frame.size.width/2-refreshRadius,
-            y: frame.size.height/2-refreshRadius,
-            width: 2*refreshRadius,
-            height: 2*refreshRadius)
-        ).cgPath
-        
-        layer.addSublayer(ovalShapeLayer)
-        
-        let planeImage = UIImage(named: "plane")
-        airPlaneLayer.contents = planeImage?.cgImage
-            airPlaneLayer.bounds = CGRect(
-                x: 0,
-                y: 0,
-                width: planeImage?.size.width ?? 10,
-                height: (planeImage?.size.height) ?? 10
-            )
-            
-            airPlaneLayer.position = CGPoint(
-                x: frame.size.width/2 + frame.size.height/2 * 0.8,
-                y: frame.size.height/2)
-            
-            layer.addSublayer(airPlaneLayer)
-            airPlaneLayer.opacity = 1
-        
+      
+        drawOvalShapeLayer()
+        drawAirplaneLayer()
         startAnimation()
     }
 }
@@ -83,7 +53,42 @@ extension StrokeAndPathView {
         ])
     }
     
-    func startAnimation() {
+    private func drawOvalShapeLayer() {
+        ovalShapeLayer.strokeColor = UIColor.white.cgColor
+        ovalShapeLayer.fillColor = UIColor.clear.cgColor
+        ovalShapeLayer.lineWidth = 5
+        ovalShapeLayer.lineDashPattern = [10, 2]
+        
+        let refreshRadius = frame.size.height/2*0.8
+        ovalShapeLayer.path = UIBezierPath(ovalIn: CGRect(
+            x: frame.size.width/2-refreshRadius,
+            y: frame.size.height/2-refreshRadius,
+            width: 2*refreshRadius,
+            height: 2*refreshRadius)
+        ).cgPath
+        
+        layer.addSublayer(ovalShapeLayer)
+    }
+    
+    private func drawAirplaneLayer() {
+        let planeImage = UIImage(named: "plane")
+        airPlaneLayer.contents = planeImage?.cgImage
+        airPlaneLayer.bounds = CGRect(
+            x: 0,
+            y: 0,
+            width: planeImage?.size.width ?? 10,
+            height: (planeImage?.size.height) ?? 10
+        )
+        
+        airPlaneLayer.position = CGPoint(
+            x: frame.size.width/2 + frame.size.height/2 * 0.8,
+            y: frame.size.height/2)
+        
+        layer.addSublayer(airPlaneLayer)
+        airPlaneLayer.opacity = 1
+    }
+    
+    private func startAnimation() {
         
         let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
         strokeStartAnimation.fromValue = -0.5
