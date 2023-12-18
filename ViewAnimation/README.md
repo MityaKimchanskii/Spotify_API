@@ -349,7 +349,7 @@ fade in effect for clouds:
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/8.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-## Animation Kes and Delegates
+## Animation Keys and Delegates
 
 Core Animation gives opportunity react to animation events, we can receive delegate callbacks for when an animations begins and ends.
 CAAnimation and its subclass CABasicAnimation implement the delegate pattern and let you respond to animation events.
