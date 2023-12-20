@@ -16,12 +16,8 @@ class GradientView: UIView {
     private let textAttributes: [NSAttributedString.Key: Any] = {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
-        return [
-          .font: UIFont.systemFont(
-            ofSize: 28, weight: .thin),
-          .paragraphStyle: style
-        ]
-      }()
+        return [.font: UIFont.systemFont(ofSize: 40, weight: .heavy), .paragraphStyle: style]
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -37,34 +33,48 @@ class GradientView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        style()
+        setupLayers()
+        setupText()
         gradientAnimated()
     }
 }
 
 extension GradientView {
-    private func style() {
+    private func setupLayers() {
+        // Define endpoints
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         
+        // Define colors
         let colors: [CGColor] = [ UIColor.black.cgColor, UIColor.white.cgColor, UIColor.black.cgColor]
-        
         gradientLayer.colors = colors
         
+        // Define locations
         let locations: [NSNumber] = [0.25, 0.5, 0.75]
-        
         gradientLayer.locations = locations
         
-        gradientLayer.frame = bounds
-        
-        
+        // Defin frame
         gradientLayer.frame = CGRect(
             x: -bounds.size.width,
             y: bounds.origin.y,
             width: 3*bounds.size.width,
             height: bounds.size.height)
         
+        // Add sublayer
         layer.addSublayer(gradientLayer)
+    }
+    
+    private func setupText() {
+        let image = UIGraphicsImageRenderer(size: bounds.size).image { _ in
+            "Hello World!".draw(in: bounds, withAttributes: textAttributes)
+        }
+        
+        let maskLayer = CALayer()
+        maskLayer.backgroundColor = UIColor.clear.cgColor
+        maskLayer.frame = bounds.offsetBy(dx: bounds.size.width, dy: 0)
+        maskLayer.contents = image.cgImage
+        
+        gradientLayer.mask = maskLayer
     }
     
     private func gradientAnimated() {

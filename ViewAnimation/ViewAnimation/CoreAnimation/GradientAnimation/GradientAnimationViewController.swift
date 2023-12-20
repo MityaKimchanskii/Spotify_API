@@ -23,7 +23,7 @@ class GradientAnimationViewController: UIViewController {
 
 extension GradientAnimationViewController {
     private func style() {
-        view.backgroundColor = .systemGray3
+        view.backgroundColor = UIColor(named: "dark")
         gradientView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -31,7 +31,7 @@ extension GradientAnimationViewController {
         view.addSubview(gradientView)
         
         NSLayoutConstraint.activate([
-            gradientView.heightAnchor.constraint(equalToConstant: 100),
+            gradientView.heightAnchor.constraint(equalToConstant: 150),
             gradientView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 3),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: gradientView.trailingAnchor, multiplier: 3),
             gradientView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
