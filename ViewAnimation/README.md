@@ -590,3 +590,4 @@ Third add animation
     }
 
 ```
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/13.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
