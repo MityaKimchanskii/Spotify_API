@@ -23,6 +23,7 @@
 		F16E89AC2B23C74F00F64AF6 /* GradientAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */; };
 		F16E89AF2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */; };
 		F16E89B22B23CF1D00F64AF6 /* StrokeAndPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89B12B23CF1D00F64AF6 /* StrokeAndPathView.swift */; };
+		F173319B2B311BEA00838ED8 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173319A2B311BEA00838ED8 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientAnimationViewController.swift; sourceTree = "<group>"; };
 		F16E89AE2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAndPathAnimationViewController.swift; sourceTree = "<group>"; };
 		F16E89B12B23CF1D00F64AF6 /* StrokeAndPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeAndPathView.swift; sourceTree = "<group>"; };
+		F173319A2B311BEA00838ED8 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */,
+				F173319A2B311BEA00838ED8 /* GradientView.swift */,
 			);
 			path = GradientAnimation;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				F16E89B22B23CF1D00F64AF6 /* StrokeAndPathView.swift in Sources */,
 				F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */,
+				F173319B2B311BEA00838ED8 /* GradientView.swift in Sources */,
 				3B1AF1592B216740005BB362 /* SpringAndKeyframeAnimation.swift in Sources */,
 				3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */,
 				F16E89A82B23B15400F64AF6 /* AvatarView.swift in Sources */,

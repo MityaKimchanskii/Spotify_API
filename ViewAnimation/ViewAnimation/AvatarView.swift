@@ -15,68 +15,88 @@ class AvatarView: UIView {
     private let animationDuration = 1.0
     
     private let photoLayer = CALayer()
-    private let circleLayer = CAShapeLayer()
-    private let maskLayer = CAShapeLayer()
-    private let label: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        label.textAlignment = .center
-        label.textColor = .red
-        
-        return label
-    }()
-    
-    
-    @IBInspectable var image: UIImage? {
-        didSet {
-            photoLayer.contents = image?.cgImage
-        }
-    }
-    
-    @GKInspectable var name: String? {
-        didSet {
-            label.text = name
-        }
-    }
     
     var shouldTransitionToFinishedState = false
     
-    override func didMoveToWindow() {
-        layer.addSublayer(photoLayer)
-        photoLayer.mask = maskLayer
-        layer.addSublayer(maskLayer)
-    }
-    
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        guard let image = image else { return }
-        
-        photoLayer.frame = CGRect(
-            x: (bounds.size.width-image.size.width+lineWidth)/2,
-            y: (bounds.size.height-image.size.height)/2, 
-            width: image.size.width,
-            height: image.size.height
-        )
-        
-        circleLayer.path = UIBezierPath(ovalIn: bounds).cgPath
-        circleLayer.strokeColor = UIColor.white.cgColor
-        circleLayer.lineWidth = lineWidth
-        circleLayer.fillColor = UIColor.clear.cgColor
-        
-        maskLayer.path = circleLayer.path
-        maskLayer.position = CGPoint(x: 0, y: 10)
-        
-        label.frame = CGRect(x: 0, y: bounds.size.height+10, width: bounds.size.width, height: 24)
+        createPhotoLayer()
     }
 }
 
 extension AvatarView {
-    private func style() {
+    
+    private func createPhotoLayer() {
+        let batmanImage = UIImage(named: "batman")
+        photoLayer.contents = batmanImage?.cgImage
+        photoLayer.bounds = CGRect(
+            x: .zero,
+            y: .zero,
+            width: 120,
+            height: 120
+        )
         
+        photoLayer.cornerRadius = 1/2*photoLayer.frame.size.width
+        photoLayer.masksToBounds = true
+
+        photoLayer.position = CGPoint(x: 60, y: 0)
+        
+        layer.addSublayer(photoLayer)
     }
     
-    private func layout() {
+    func startAnimation(point: CGPoint, morphSize: CGSize) {
+        let originalCenter = center
         
+        UIView.animate(
+            withDuration: animationDuration,
+            delay: 0.0,
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 0.0,
+            animations: {
+                self.center = point
+            }, completion: { _ in
+                
+            })
+        
+        UIView.animate(
+            withDuration: animationDuration,
+            delay: animationDuration,
+            usingSpringWithDamping: 0.7,
+            initialSpringVelocity: 1.0,
+            animations: {
+                self.center = originalCenter
+            }, completion: { _ in
+//                self.delay(seconds: 0.1) {
+//                    self.startAnimation(point: point, morphSize: morphSize)
+//                }
+            })
+        
+        let morphedFrame = (originalCenter.x < point.x) ?
+        
+        CGRect(
+            x: 0.0,
+            y: bounds.height - morphSize.height,
+            width: morphSize.width,
+            height: morphSize.height) :
+        
+        CGRect(
+            x: bounds.width - morphSize.width,
+            y: bounds.height - morphSize.height,
+            width: morphSize.width,
+            height: morphSize.height)
+        
+        let morphAnimation = CABasicAnimation(keyPath: "path")
+        morphAnimation.duration = animationDuration
+       
+        morphAnimation.toValue = UIBezierPath(ovalIn: morphedFrame).cgPath
+        
+        morphAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        
+        photoLayer.add(morphAnimation, forKey: nil)
+    }
+    
+    private func delay(seconds: Double, completion: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: completion)
     }
 }

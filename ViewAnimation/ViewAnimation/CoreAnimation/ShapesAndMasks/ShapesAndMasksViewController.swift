@@ -53,8 +53,6 @@ extension ShapesAndMasksViewController {
         versusLabel.textColor = .systemGreen
         
         myAvatar.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         opponentAvatar.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -82,14 +80,34 @@ extension ShapesAndMasksViewController {
             
             versusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            myAvatar.topAnchor.constraint(equalToSystemSpacingBelow: statusLabel.bottomAnchor, multiplier: 15),
+            myAvatar.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 5),
+            myAvatar.widthAnchor.constraint(equalToConstant: 120),
+            myAvatar.heightAnchor.constraint(equalToConstant: 120),
+            
             opponentAvatar.topAnchor.constraint(equalToSystemSpacingBelow: statusLabel.bottomAnchor, multiplier: 15),
-            opponentAvatar.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 3),
-            opponentAvatar.widthAnchor.constraint(equalToConstant: 100),
-            opponentAvatar.heightAnchor.constraint(equalToConstant: 100)
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: opponentAvatar.trailingAnchor, multiplier: 5),
+            opponentAvatar.widthAnchor.constraint(equalToConstant: 120),
+            opponentAvatar.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
     
     @objc private func searchButtonTapped() {
+        let avatarSize = myAvatar.frame.size
+        let bounceXOffset: CGFloat = -avatarSize.width / 2
+        let morphSize = CGSize(
+            width: avatarSize.width * 0.85,
+            height: avatarSize.height * 1.1)
         
+        let rightBouncePoint = CGPoint(
+            x: view.frame.size.width / 2.0 + bounceXOffset,
+            y: myAvatar.center.y)
+        
+        let leftBouncePoint = CGPoint(
+            x: view.frame.size.width / 2.0 - bounceXOffset,
+            y: myAvatar.center.y)
+        
+        myAvatar.startAnimation(point: rightBouncePoint, morphSize: morphSize)
+        opponentAvatar.startAnimation(point: leftBouncePoint, morphSize: morphSize)
     }
 }

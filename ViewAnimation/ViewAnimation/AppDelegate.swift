@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = BasicsOfCALayuerAndCoreAnimation()
 //        window?.rootViewController = SpringAndKeyframeAnimation()
 //        window?.rootViewController = ShapesAndMasksViewController()
-        window?.rootViewController = StrokeAndPathAnimation()
+//        window?.rootViewController = StrokeAndPathAnimation()
+        window?.rootViewController = GradientAnimationViewController()
         window?.makeKeyAndVisible()
         
         return true
