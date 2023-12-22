@@ -21,6 +21,7 @@
 		F109BD4A2B1BE2E700034127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F109BD492B1BE2E700034127 /* Assets.xcassets */; };
 		F109BD4D2B1BE2E700034127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F109BD4B2B1BE2E700034127 /* LaunchScreen.storyboard */; };
 		F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109BD542B1D853B00034127 /* CrossfadingAnimation.swift */; };
+		F14ECA312B3622D2002A5566 /* EmittersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ECA302B3622D2002A5566 /* EmittersViewController.swift */; };
 		F16E89A82B23B15400F64AF6 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89A72B23B15400F64AF6 /* AvatarView.swift */; };
 		F16E89AA2B23B95000F64AF6 /* ShapesAndMasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89A92B23B95000F64AF6 /* ShapesAndMasksViewController.swift */; };
 		F16E89AC2B23C74F00F64AF6 /* GradientAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */; };
@@ -46,6 +47,7 @@
 		F109BD4C2B1BE2E700034127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F109BD4E2B1BE2E700034127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F109BD542B1D853B00034127 /* CrossfadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadingAnimation.swift; sourceTree = "<group>"; };
+		F14ECA302B3622D2002A5566 /* EmittersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmittersViewController.swift; sourceTree = "<group>"; };
 		F16E89A72B23B15400F64AF6 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvatarView.swift; path = ViewAnimation/AvatarView.swift; sourceTree = SOURCE_ROOT; };
 		F16E89A92B23B95000F64AF6 /* ShapesAndMasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesAndMasksViewController.swift; sourceTree = "<group>"; };
 		F16E89AB2B23C74F00F64AF6 /* GradientAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientAnimationViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */,
 				F16E89AD2B23CB1E00F64AF6 /* GradientAnimation */,
 				3BC912B32B353FBB00184FA7 /* ReplicationAnimations */,
+				F14ECA2F2B3622AD002A5566 /* Emitters */,
 				3BC912B42B355C3000184FA7 /* ViewControllerTransitionAnimation */,
 			);
 			path = CoreAnimation;
@@ -144,6 +147,14 @@
 				3BE7A2AB2B1FEFE800FCD4FD /* Files */,
 			);
 			path = ViewAnimation;
+			sourceTree = "<group>";
+		};
+		F14ECA2F2B3622AD002A5566 /* Emitters */ = {
+			isa = PBXGroup;
+			children = (
+				F14ECA302B3622D2002A5566 /* EmittersViewController.swift */,
+			);
+			path = Emitters;
 			sourceTree = "<group>";
 		};
 		F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */ = {
@@ -244,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BC912B82B35625B00184FA7 /* TransitionAnimationViewController.swift in Sources */,
+				F14ECA312B3622D2002A5566 /* EmittersViewController.swift in Sources */,
 				3BC912B62B3561B600184FA7 /* PopUpAnimator.swift in Sources */,
 				F16E89B22B23CF1D00F64AF6 /* StrokeAndPathView.swift in Sources */,
 				F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */,

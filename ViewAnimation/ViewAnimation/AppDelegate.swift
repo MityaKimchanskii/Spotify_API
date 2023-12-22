@@ -29,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = StrokeAndPathAnimation()
 //        window?.rootViewController = GradientAnimationViewController()
 //        window?.rootViewController = ReplicationAnimationViewController()
-        window?.rootViewController = TransitionAnimationViewController()
+        window?.rootViewController = EmittersViewController()
+//        window?.rootViewController = TransitionAnimationViewController()
         window?.makeKeyAndVisible()
         
         return true

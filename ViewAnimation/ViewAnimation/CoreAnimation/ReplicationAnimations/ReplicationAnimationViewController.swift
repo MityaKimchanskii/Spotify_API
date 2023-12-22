@@ -51,7 +51,6 @@ extension ReplicationAnimationViewController {
     }
     
     private func scaleAnimation() {
-        let value = [0, 2, 4, 5, 3, 6, 7]
         
         let scale = CABasicAnimation(keyPath: "transform.scale.y")
         scale.fromValue = 0
