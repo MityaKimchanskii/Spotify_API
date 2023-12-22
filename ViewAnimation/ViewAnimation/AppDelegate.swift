@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = SpringAndKeyframeAnimation()
 //        window?.rootViewController = ShapesAndMasksViewController()
 //        window?.rootViewController = StrokeAndPathAnimation()
-        window?.rootViewController = GradientAnimationViewController()
+//        window?.rootViewController = GradientAnimationViewController()
+        window?.rootViewController = ReplicationAnimationViewController()
         window?.makeKeyAndVisible()
         
         return true

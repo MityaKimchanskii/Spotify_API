@@ -717,3 +717,37 @@ Third add animation
 
 ```
 <img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/15.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+## Replicating Animations
+
+CAReplicatorLayer properties:
+- instanceCount: number of copies
+- instanceTransform: sets the transform
+- instanceDelay: sets the animation delay
+
+```swift 
+
+    private func createReplicator() {
+        replicatorLayer.frame = view.bounds
+        view.layer.addSublayer(replicatorLayer)
+        
+        dotLayer.frame = CGRect(x: replicatorLayer.frame.size.width-dotSize,
+                                y: replicatorLayer.position.y,
+                                width: dotSize,
+                                height: dotSize)
+        dotLayer.backgroundColor = UIColor.black.cgColor
+        
+        dotLayer.borderColor = UIColor.red.cgColor
+        dotLayer.borderWidth = 1
+        dotLayer.cornerRadius = 5
+        
+        replicatorLayer.addSublayer(dotLayer)
+        replicatorLayer.instanceCount = Int(view.frame.size.width/dotSize)
+        replicatorLayer.instanceTransform = CATransform3DMakeTranslation(-dotOffset, 0, 0)
+        replicatorLayer.instanceDelay = 0.5
+    }
+
+```
+
+<img src='https://github.com/MityaKimchanskii/Spotify_API/blob/main/ViewAnimation/img/16.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />

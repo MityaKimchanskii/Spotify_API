@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B1AF1592B216740005BB362 /* SpringAndKeyframeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AF1582B216740005BB362 /* SpringAndKeyframeAnimation.swift */; };
+		3BC912B22B353FB000184FA7 /* ReplicationAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC912B12B353FB000184FA7 /* ReplicationAnimationViewController.swift */; };
 		3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */; };
 		3BE7A2A92B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */; };
 		3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		3B1AF1582B216740005BB362 /* SpringAndKeyframeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAndKeyframeAnimation.swift; sourceTree = "<group>"; };
+		3BC912B12B353FB000184FA7 /* ReplicationAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicationAnimationViewController.swift; sourceTree = "<group>"; };
 		3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutAnimation.swift; sourceTree = "<group>"; };
 		3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicsOfCALayuerAndCoreAnimation.swift; sourceTree = "<group>"; };
 		3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTransition.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BC912B32B353FBB00184FA7 /* ReplicationAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				3BC912B12B353FB000184FA7 /* ReplicationAnimationViewController.swift */,
+			);
+			path = ReplicationAnimations;
+			sourceTree = "<group>";
+		};
 		3BE7A2AA2B1FEFB600FCD4FD /* UIKitAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 				F16E89B02B23CEB900F64AF6 /* StrokeAndPathAnimation */,
 				F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */,
 				F16E89AD2B23CB1E00F64AF6 /* GradientAnimation */,
+				3BC912B32B353FBB00184FA7 /* ReplicationAnimations */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -230,6 +241,7 @@
 				3BE7A2A92B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift in Sources */,
 				F16E89AF2B23CB4E00F64AF6 /* StrokeAndPathAnimationViewController.swift in Sources */,
 				F16E89AA2B23B95000F64AF6 /* ShapesAndMasksViewController.swift in Sources */,
+				3BC912B22B353FB000184FA7 /* ReplicationAnimationViewController.swift in Sources */,
 				F16E89AC2B23C74F00F64AF6 /* GradientAnimationViewController.swift in Sources */,
 				3BEBE9112B1EF6B100848B8B /* FadeAndBounceTransitions.swift in Sources */,
 				3BEBE9132B1F020900848B8B /* KeyFrame.swift in Sources */,
