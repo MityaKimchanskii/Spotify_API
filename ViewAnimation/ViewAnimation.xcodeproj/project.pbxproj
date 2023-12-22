@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B1AF1592B216740005BB362 /* SpringAndKeyframeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1AF1582B216740005BB362 /* SpringAndKeyframeAnimation.swift */; };
 		3BC912B22B353FB000184FA7 /* ReplicationAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC912B12B353FB000184FA7 /* ReplicationAnimationViewController.swift */; };
+		3BC912B62B3561B600184FA7 /* PopUpAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC912B52B3561B600184FA7 /* PopUpAnimator.swift */; };
+		3BC912B82B35625B00184FA7 /* TransitionAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC912B72B35625B00184FA7 /* TransitionAnimationViewController.swift */; };
 		3BE7A2A72B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */; };
 		3BE7A2A92B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */; };
 		3BEBE90F2B1EE58900848B8B /* CubeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		3B1AF1582B216740005BB362 /* SpringAndKeyframeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAndKeyframeAnimation.swift; sourceTree = "<group>"; };
 		3BC912B12B353FB000184FA7 /* ReplicationAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicationAnimationViewController.swift; sourceTree = "<group>"; };
+		3BC912B52B3561B600184FA7 /* PopUpAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAnimator.swift; sourceTree = "<group>"; };
+		3BC912B72B35625B00184FA7 /* TransitionAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimationViewController.swift; sourceTree = "<group>"; };
 		3BE7A2A62B1FCEBD00FCD4FD /* AutoLayoutAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutAnimation.swift; sourceTree = "<group>"; };
 		3BE7A2A82B1FEF7000FCD4FD /* BasicsOfCALayuerAndCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicsOfCALayuerAndCoreAnimation.swift; sourceTree = "<group>"; };
 		3BEBE90E2B1EE58900848B8B /* CubeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeTransition.swift; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 			path = ReplicationAnimations;
 			sourceTree = "<group>";
 		};
+		3BC912B42B355C3000184FA7 /* ViewControllerTransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				3BC912B52B3561B600184FA7 /* PopUpAnimator.swift */,
+				3BC912B72B35625B00184FA7 /* TransitionAnimationViewController.swift */,
+			);
+			path = ViewControllerTransitionAnimation;
+			sourceTree = "<group>";
+		};
 		3BE7A2AA2B1FEFB600FCD4FD /* UIKitAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +115,7 @@
 				F16E89A62B23B0F900F64AF6 /* ShapesAndMasks */,
 				F16E89AD2B23CB1E00F64AF6 /* GradientAnimation */,
 				3BC912B32B353FBB00184FA7 /* ReplicationAnimations */,
+				3BC912B42B355C3000184FA7 /* ViewControllerTransitionAnimation */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -229,6 +243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC912B82B35625B00184FA7 /* TransitionAnimationViewController.swift in Sources */,
+				3BC912B62B3561B600184FA7 /* PopUpAnimator.swift in Sources */,
 				F16E89B22B23CF1D00F64AF6 /* StrokeAndPathView.swift in Sources */,
 				F109BD552B1D853B00034127 /* CrossfadingAnimation.swift in Sources */,
 				F173319B2B311BEA00838ED8 /* GradientView.swift in Sources */,
