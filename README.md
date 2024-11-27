@@ -17,4 +17,5 @@
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/CollectionViewInsideTableView">- How to create a collectionView inside a tableView? </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/ViewAnimation">- Animations tutorial </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Games">- 2D Games </a>
+#### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Example_Core_Data">- Simple Core Data Example </a>
 
