@@ -82,8 +82,12 @@ extension CoinTableViewCell {
         nameLabel.text = viewModel.coin.name
         symbolLabel.text = viewModel.coin.symbol.uppercased()
         currentPriceLabel.text = "$\(viewModel.coin.currentPrice)"
-        DispatchQueue.main.async {
-            self.coinImageView.image = viewModel.image
+        
+        
+        viewModel.onImageDowloaded = { [weak self] in
+            DispatchQueue.main.async {
+                self?.coinImageView.image = viewModel.image
+            }
         }
     }
 }

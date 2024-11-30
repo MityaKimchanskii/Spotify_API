@@ -8,13 +8,14 @@ import UIKit
 
 
 final class CoinTableViewCellViewModel {
-    
+        
     let coin: Coin
     var image: UIImage?
+    var onImageDowloaded: (() -> Void)?
     
     init(coin: Coin) {
         self.coin = coin
-    
+        fetchImage()
     }
     
     public func fetchImage() {
@@ -22,6 +23,7 @@ final class CoinTableViewCellViewModel {
             switch result {
             case .success(let data):
                 self?.image = UIImage(data: data)
+                self?.onImageDowloaded?()
             case .failure(let error):
                 print("ERROR: \(error.localizedDescription)")
             }

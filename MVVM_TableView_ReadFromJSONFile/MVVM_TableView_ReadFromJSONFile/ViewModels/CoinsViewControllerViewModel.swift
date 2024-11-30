@@ -19,7 +19,7 @@ final class CoinsViewControllerViewModel: NSObject {
 }
 
 // MARK: - Helper Methods
-extension CoinsViewControllerViewModel {
+extension CoinsViewControllerViewModel {    
     private func readJSONFile() {
         guard let path = Bundle.main.path(forResource: "Data", ofType: "json") else { return }
         
@@ -44,7 +44,6 @@ extension CoinsViewControllerViewModel: UITableViewDelegate, UITableViewDataSour
             fatalError("Unsupported UITableViewCell") }
         let coin = coins[indexPath.row]
         let coinViewModel = CoinTableViewCellViewModel(coin: coin)
-        coinViewModel.fetchImage()
         cell.configure(with: coinViewModel)
         
         return cell
