@@ -6,27 +6,41 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3BBFA4C32CFAD901005166D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBFA4BC2CFAD901005166D2 /* AppDelegate.swift */; };
+		3BBFA4C52CFAD901005166D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BBFA4BD2CFAD901005166D2 /* Assets.xcassets */; };
+		3BBFA4C72CFAD901005166D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BBFA4C12CFAD901005166D2 /* LaunchScreen.storyboard */; };
+		3BBFA4D42CFADA5F005166D2 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BBFA4D32CFADA5F005166D2 /* Data.json */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3BBFA4A42CFAD66C005166D2 /* MVVM_TableView_ReadFromJSONFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_TableView_ReadFromJSONFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BBFA4BC2CFAD901005166D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3BBFA4BD2CFAD901005166D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BBFA4BF2CFAD901005166D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BBFA4C02CFAD901005166D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3BBFA4D32CFADA5F005166D2 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3BBFA4B62CFAD66E005166D2 /* Exceptions for "MVVM_TableView_ReadFromJSONFile" folder in "MVVM_TableView_ReadFromJSONFile" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 3BBFA4A32CFAD66C005166D2 /* MVVM_TableView_ReadFromJSONFile */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3BBFA4A62CFAD66C005166D2 /* MVVM_TableView_ReadFromJSONFile */ = {
+		3BBFA4CA2CFAD990005166D2 /* Views */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				3BBFA4B62CFAD66E005166D2 /* Exceptions for "MVVM_TableView_ReadFromJSONFile" folder in "MVVM_TableView_ReadFromJSONFile" target */,
-			);
-			path = MVVM_TableView_ReadFromJSONFile;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3BBFA4CC2CFAD9A6005166D2 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3BBFA4CD2CFAD9AF005166D2 /* ViewModels */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3BBFA4D52CFADA7F005166D2 /* Managers */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +59,7 @@
 		3BBFA49B2CFAD66C005166D2 = {
 			isa = PBXGroup;
 			children = (
-				3BBFA4A62CFAD66C005166D2 /* MVVM_TableView_ReadFromJSONFile */,
+				3BBFA4C22CFAD901005166D2 /* MVVM_TableView_ReadFromJSONFile */,
 				3BBFA4A52CFAD66C005166D2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +70,30 @@
 				3BBFA4A42CFAD66C005166D2 /* MVVM_TableView_ReadFromJSONFile.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3BBFA4C22CFAD901005166D2 /* MVVM_TableView_ReadFromJSONFile */ = {
+			isa = PBXGroup;
+			children = (
+				3BBFA4D52CFADA7F005166D2 /* Managers */,
+				3BBFA4CD2CFAD9AF005166D2 /* ViewModels */,
+				3BBFA4CC2CFAD9A6005166D2 /* Models */,
+				3BBFA4CA2CFAD990005166D2 /* Views */,
+				3BBFA4C92CFAD93F005166D2 /* Files */,
+			);
+			path = MVVM_TableView_ReadFromJSONFile;
+			sourceTree = "<group>";
+		};
+		3BBFA4C92CFAD93F005166D2 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BBFA4BC2CFAD901005166D2 /* AppDelegate.swift */,
+				3BBFA4BD2CFAD901005166D2 /* Assets.xcassets */,
+				3BBFA4BF2CFAD901005166D2 /* Info.plist */,
+				3BBFA4C12CFAD901005166D2 /* LaunchScreen.storyboard */,
+				3BBFA4D32CFADA5F005166D2 /* Data.json */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,7 +112,10 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				3BBFA4A62CFAD66C005166D2 /* MVVM_TableView_ReadFromJSONFile */,
+				3BBFA4CA2CFAD990005166D2 /* Views */,
+				3BBFA4CC2CFAD9A6005166D2 /* Models */,
+				3BBFA4CD2CFAD9AF005166D2 /* ViewModels */,
+				3BBFA4D52CFADA7F005166D2 /* Managers */,
 			);
 			name = MVVM_TableView_ReadFromJSONFile;
 			packageProductDependencies = (
@@ -122,6 +163,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BBFA4C52CFAD901005166D2 /* Assets.xcassets in Resources */,
+				3BBFA4C72CFAD901005166D2 /* LaunchScreen.storyboard in Resources */,
+				3BBFA4D42CFADA5F005166D2 /* Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +176,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BBFA4C32CFAD901005166D2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3BBFA4C12CFAD901005166D2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BBFA4C02CFAD901005166D2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3BBFA4B82CFAD66E005166D2 /* Debug */ = {
@@ -150,9 +206,9 @@
 				INFOPLIST_FILE = MVVM_TableView_ReadFromJSONFile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -178,9 +234,9 @@
 				INFOPLIST_FILE = MVVM_TableView_ReadFromJSONFile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -246,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -303,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
