@@ -11,33 +11,45 @@ final class ImageLoader {
     
     static let shared = ImageLoader()
     
-    private var imageDataCashe = NSCache<NSString, NSData>()
+    private let imageDataCache = NSCache<NSString, NSData>()
     
-    private init() {}
+    private init() {
+        NotificationCenter.default.addObserver(self,selector: #selector(clearCache), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(clearCache), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        imageDataCache.totalCostLimit = 50 * 1024 * 1024
+    }
     
     public func downloadImage(_ urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: urlString) else { return completion(.failure(.invalidURL)) }
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.invalidURL))
+        }
         
-        let key = url.absoluteString as NSString
-        if let data = imageDataCashe.object(forKey: key) {
-            completion(.success(data as Data))
+        let key = url.absoluteString
+
+        if let cachedData = imageDataCache.object(forKey: key as NSString) {
+            completion(.success(cachedData as Data))
             return
         }
         
-        URLSession.shared.dataTask(with: url) { data, res, error in
-            guard error == nil else { return completion(.failure(.invalidURL)) }
-            
-            if let res = res as? HTTPURLResponse {
-                if res.statusCode != 200 {
-                    print("Status Code: \(res.statusCode)")
-                }
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                return completion(.failure(.networkError(error)))
             }
             
-            guard let data else { return completion(.failure(.noData)) }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                return completion(.failure(.invalidResponse))
+            }
             
-            self.imageDataCashe.setObject(data as NSData, forKey: key)
+            guard let data = data else { return completion(.failure(.noData)) }
             
-            return completion(.success(data))
+            self?.imageDataCache.setObject(data as NSData, forKey: key as NSString)
+            
+            completion(.success(data))
         }.resume()
     }
+    
+    @objc public func clearCache() {
+        imageDataCache.removeAllObjects()
+    }
 }
+

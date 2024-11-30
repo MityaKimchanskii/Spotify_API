@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class CoinTableViewCell: UITableViewCell {
     
@@ -81,7 +82,7 @@ extension CoinTableViewCell {
     public func configure(with viewModel: CoinTableViewCellViewModel) {
         nameLabel.text = viewModel.coin.name
         symbolLabel.text = viewModel.coin.symbol.uppercased()
-        currentPriceLabel.text = "$\(viewModel.coin.currentPrice)"
+        currentPriceLabel.text = viewModel.formattedPrice
         
         
         viewModel.onImageDowloaded = { [weak self] in
