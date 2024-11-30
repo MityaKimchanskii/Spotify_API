@@ -18,7 +18,6 @@ class CoinTableViewCell: UITableViewCell {
     private let coinImageView = UIImageView()
     private let currentPriceLabel = UILabel()
     
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -83,7 +82,6 @@ extension CoinTableViewCell {
         nameLabel.text = viewModel.coin.name
         symbolLabel.text = viewModel.coin.symbol.uppercased()
         currentPriceLabel.text = viewModel.formattedPrice
-        
         
         viewModel.onImageDowloaded = { [weak self] in
             DispatchQueue.main.async {

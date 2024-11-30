@@ -38,9 +38,9 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		3BBFA4D52CFADA7F005166D2 /* Managers */ = {
+		3BBFA4D52CFADA7F005166D2 /* Network */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Managers;
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +75,7 @@
 		3BBFA4C22CFAD901005166D2 /* MVVM_TableView_ReadFromJSONFile */ = {
 			isa = PBXGroup;
 			children = (
-				3BBFA4D52CFADA7F005166D2 /* Managers */,
+				3BBFA4D52CFADA7F005166D2 /* Network */,
 				3BBFA4CD2CFAD9AF005166D2 /* ViewModels */,
 				3BBFA4CC2CFAD9A6005166D2 /* Models */,
 				3BBFA4CA2CFAD990005166D2 /* Views */,
@@ -115,7 +115,7 @@
 				3BBFA4CA2CFAD990005166D2 /* Views */,
 				3BBFA4CC2CFAD9A6005166D2 /* Models */,
 				3BBFA4CD2CFAD9AF005166D2 /* ViewModels */,
-				3BBFA4D52CFADA7F005166D2 /* Managers */,
+				3BBFA4D52CFADA7F005166D2 /* Network */,
 			);
 			name = MVVM_TableView_ReadFromJSONFile;
 			packageProductDependencies = (
