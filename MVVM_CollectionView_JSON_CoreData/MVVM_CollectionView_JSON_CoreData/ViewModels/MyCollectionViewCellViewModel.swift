@@ -19,6 +19,10 @@ final class MyCollectionViewCellViewModel {
         return String(format: "$%.2f", coin.currentPrice)
     }
     
+    var formattedPercentage: String {
+        return String(format: "%.2f", coin.changePercentage)
+    }
+    
     init(coin: Coin, image: UIImage? = nil) {
         self.coin = coin
         self.image = image

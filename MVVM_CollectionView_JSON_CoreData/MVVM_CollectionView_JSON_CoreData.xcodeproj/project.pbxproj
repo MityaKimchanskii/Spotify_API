@@ -14,7 +14,18 @@
 		3BC611572CFD827E00697236 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BC611562CFD827E00697236 /* Data.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3BA41B7D2CFE57CB004802AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BC611182CFD813800697236 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BC6111F2CFD813800697236;
+			remoteInfo = MVVM_CollectionView_JSON_CoreData;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3BA41B792CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVM_CollectionView_JSON_CoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC611202CFD813800697236 /* MVVM_CollectionView_JSON_CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_CollectionView_JSON_CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC6113B2CFD816400697236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BC6113C2CFD816400697236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +46,11 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		3BA41B7A2CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MVVM_CollectionView_JSON_CoreDataTests;
+			sourceTree = "<group>";
+		};
 		3BC611502CFD81A200697236 /* Models */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Models;
@@ -45,14 +61,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		3BC611532CFD81C100697236 /* ModelViews */ = {
+		3BC611532CFD81C100697236 /* ViewModels */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ModelViews;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3BA41B762CFE57CB004802AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC6111D2CFD813800697236 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC611452CFD816400697236 /* MVVM_CollectionView_JSON_CoreData */,
+				3BA41B7A2CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests */,
 				3BC611212CFD813800697236 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC611202CFD813800697236 /* MVVM_CollectionView_JSON_CoreData.app */,
+				3BA41B792CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +109,7 @@
 			children = (
 				3BA41B712CFE5284004802AD /* Constants */,
 				3BA41B6A2CFE3D0F004802AD /* Network */,
-				3BC611532CFD81C100697236 /* ModelViews */,
+				3BC611532CFD81C100697236 /* ViewModels */,
 				3BC611522CFD81BA00697236 /* Views */,
 				3BC611502CFD81A200697236 /* Models */,
 				3BC6114F2CFD818500697236 /* Files */,
@@ -108,6 +133,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3BA41B782CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BA41B7F2CFE57CB004802AD /* Build configuration list for PBXNativeTarget "MVVM_CollectionView_JSON_CoreDataTests" */;
+			buildPhases = (
+				3BA41B752CFE57CB004802AD /* Sources */,
+				3BA41B762CFE57CB004802AD /* Frameworks */,
+				3BA41B772CFE57CB004802AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BA41B7E2CFE57CB004802AD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3BA41B7A2CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests */,
+			);
+			name = MVVM_CollectionView_JSON_CoreDataTests;
+			packageProductDependencies = (
+			);
+			productName = MVVM_CollectionView_JSON_CoreDataTests;
+			productReference = 3BA41B792CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3BC6111F2CFD813800697236 /* MVVM_CollectionView_JSON_CoreData */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BC611362CFD813900697236 /* Build configuration list for PBXNativeTarget "MVVM_CollectionView_JSON_CoreData" */;
@@ -125,7 +173,7 @@
 				3BA41B712CFE5284004802AD /* Constants */,
 				3BC611502CFD81A200697236 /* Models */,
 				3BC611522CFD81BA00697236 /* Views */,
-				3BC611532CFD81C100697236 /* ModelViews */,
+				3BC611532CFD81C100697236 /* ViewModels */,
 			);
 			name = MVVM_CollectionView_JSON_CoreData;
 			packageProductDependencies = (
@@ -144,6 +192,11 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
+					3BA41B782CFE57CB004802AD = {
+						CreatedOnToolsVersion = 16.1;
+						LastSwiftMigration = 1610;
+						TestTargetID = 3BC6111F2CFD813800697236;
+					};
 					3BC6111F2CFD813800697236 = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -164,11 +217,19 @@
 			projectRoot = "";
 			targets = (
 				3BC6111F2CFD813800697236 /* MVVM_CollectionView_JSON_CoreData */,
+				3BA41B782CFE57CB004802AD /* MVVM_CollectionView_JSON_CoreDataTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3BA41B772CFE57CB004802AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC6111E2CFD813800697236 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +243,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3BA41B752CFE57CB004802AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BC6111C2CFD813800697236 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +260,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BA41B7E2CFE57CB004802AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BC6111F2CFD813800697236 /* MVVM_CollectionView_JSON_CoreData */;
+			targetProxy = 3BA41B7D2CFE57CB004802AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3BC6113F2CFD816400697236 /* LaunchScreen.storyboard */ = {
@@ -205,6 +281,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3BA41B802CFE57CB004802AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.MVVM-CollectionView-JSON-CoreDataTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM_CollectionView_JSON_CoreData.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVVM_CollectionView_JSON_CoreData";
+			};
+			name = Debug;
+		};
+		3BA41B812CFE57CB004802AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.MVVM-CollectionView-JSON-CoreDataTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM_CollectionView_JSON_CoreData.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVVM_CollectionView_JSON_CoreData";
+			};
+			name = Release;
+		};
 		3BC611372CFD813900697236 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -370,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -383,6 +500,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3BA41B7F2CFE57CB004802AD /* Build configuration list for PBXNativeTarget "MVVM_CollectionView_JSON_CoreDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BA41B802CFE57CB004802AD /* Debug */,
+				3BA41B812CFE57CB004802AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3BC6111B2CFD813800697236 /* Build configuration list for PBXProject "MVVM_CollectionView_JSON_CoreData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

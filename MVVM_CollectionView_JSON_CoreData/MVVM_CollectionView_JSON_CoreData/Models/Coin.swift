@@ -13,11 +13,13 @@ struct Coin: Codable {
     let symbol: String
     let currentPrice: Double
     let imageURL: String
+    let changePercentage: Double
     
     enum CodingKeys: String, CodingKey {
         case name, symbol
         case imageURL = "image"
         case currentPrice = "current_price"
+        case changePercentage = "market_cap_change_percentage_24h"
     }
 }
 

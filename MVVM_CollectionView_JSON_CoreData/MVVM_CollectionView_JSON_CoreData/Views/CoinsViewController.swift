@@ -26,7 +26,7 @@ final class CoinsViewController: UIViewController {
 extension CoinsViewController {
     private func setupCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(MyCollectionViewCell.self, forCellWithReuseIdentifier: MyCollectionViewCell.id)
+        collectionView.register(CoinCollectionViewCell.self, forCellWithReuseIdentifier: CoinCollectionViewCell.id)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel

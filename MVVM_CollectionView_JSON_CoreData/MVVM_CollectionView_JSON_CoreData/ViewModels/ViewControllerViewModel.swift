@@ -45,7 +45,7 @@ extension ViewControllerViewModel: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.id, for: indexPath) as? MyCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinCollectionViewCell.id, for: indexPath) as? CoinCollectionViewCell else {
             fatalError("Unsupported UICollectionViewCell")
         }
         let coin = coins[indexPath.row]
