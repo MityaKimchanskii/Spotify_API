@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    
+    private let viewModel = ViewControllerViewModel()
     
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
@@ -24,6 +26,11 @@ class ViewController: UIViewController {
 extension ViewController {
     private func setupCollectionView() {
         
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
+        
+        
     }
     
     private func style() {
@@ -31,7 +38,14 @@ extension ViewController {
     }
     
     private func layout() {
+        view.addSubview(collectionView)
         
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
         
     }
 }
