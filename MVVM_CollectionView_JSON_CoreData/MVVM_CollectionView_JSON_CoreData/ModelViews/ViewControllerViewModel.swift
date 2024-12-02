@@ -34,14 +34,6 @@ extension ViewControllerViewModel {
     }
 }
 
-
-// MARK: - UICollectionViewDelegate
-extension ViewControllerViewModel: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row + 1)
-    }
-}
-
 // MARK: - UICollectionViewDataSource
 extension ViewControllerViewModel: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -62,10 +54,18 @@ extension ViewControllerViewModel: UICollectionViewDataSource {
     }
 }
 
+
+// MARK: - UICollectionViewDelegate
+extension ViewControllerViewModel: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row + 1)
+    }
+}
+
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ViewControllerViewModel: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width - 16, height: 100)
+        return CGSize(width: ViewSizeContstants.collectionViewWidth, height: ViewSizeContstants.collectionViewItemHeight)
     }
 }
 

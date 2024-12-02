@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class CoinsViewController: UIViewController {
     
     private let viewModel = ViewControllerViewModel()
     
@@ -23,7 +23,7 @@ final class ViewController: UIViewController {
 }
 
 // MARK: - Helper Methods
-extension ViewController {
+extension CoinsViewController {
     private func setupCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(MyCollectionViewCell.self, forCellWithReuseIdentifier: MyCollectionViewCell.id)

@@ -18,7 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = ViewController()
+        
+        let coinsVC = CoinsViewController()
+        let coinsNC = UINavigationController(rootViewController: coinsVC)
+        coinsNC.navigationBar.prefersLargeTitles = true
+        coinsVC.title = "Crypto Market"
+        
+        window?.rootViewController = coinsNC
         
         return true
     }

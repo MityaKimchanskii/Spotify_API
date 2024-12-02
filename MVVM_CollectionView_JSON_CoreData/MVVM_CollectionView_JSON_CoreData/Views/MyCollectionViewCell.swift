@@ -34,7 +34,7 @@ extension MyCollectionViewCell {
     private func style() {
         contentView.backgroundColor = .systemGray6
         contentView.layer.cornerRadius = 5
-        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowColor = UIColor.gray.cgColor
         contentView.layer.shadowOffset = CGSize(width: 5, height: 5)
         contentView.layer.shadowRadius = 5
         contentView.layer.shadowOpacity = 0.3
@@ -46,12 +46,12 @@ extension MyCollectionViewCell {
         
         symbolLabel.translatesAutoresizingMaskIntoConstraints = false
         symbolLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        symbolLabel.textColor = .black
+        symbolLabel.textColor = .systemGray
         symbolLabel.textAlignment = .left
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        priceLabel.textColor = .black
+        priceLabel.textColor = .systemGreen
         priceLabel.textAlignment = .left
         
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,8 +74,8 @@ extension MyCollectionViewCell {
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1),
             iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            iconImageView.heightAnchor.constraint(equalToConstant: 64),
-            iconImageView.widthAnchor.constraint(equalToConstant: 64),
+            iconImageView.heightAnchor.constraint(equalToConstant: ViewSizeContstants.iconHeightAndWidth),
+            iconImageView.widthAnchor.constraint(equalToConstant: ViewSizeContstants.iconHeightAndWidth),
             
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: iconImageView.trailingAnchor, multiplier: 1),
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

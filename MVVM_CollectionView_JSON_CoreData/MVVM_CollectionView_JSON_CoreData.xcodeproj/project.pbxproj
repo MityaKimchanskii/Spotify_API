@@ -30,6 +30,11 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		3BA41B712CFE5284004802AD /* Constants */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		3BC611502CFD81A200697236 /* Models */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Models;
@@ -77,6 +82,7 @@
 		3BC611452CFD816400697236 /* MVVM_CollectionView_JSON_CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3BA41B712CFE5284004802AD /* Constants */,
 				3BA41B6A2CFE3D0F004802AD /* Network */,
 				3BC611532CFD81C100697236 /* ModelViews */,
 				3BC611522CFD81BA00697236 /* Views */,
@@ -116,6 +122,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				3BA41B6A2CFE3D0F004802AD /* Network */,
+				3BA41B712CFE5284004802AD /* Constants */,
 				3BC611502CFD81A200697236 /* Models */,
 				3BC611522CFD81BA00697236 /* Views */,
 				3BC611532CFD81C100697236 /* ModelViews */,

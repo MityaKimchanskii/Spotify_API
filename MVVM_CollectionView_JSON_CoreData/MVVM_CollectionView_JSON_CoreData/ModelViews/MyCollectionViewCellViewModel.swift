@@ -16,7 +16,7 @@ final class MyCollectionViewCellViewModel {
     var onImageDownloaded: (() -> Void)?
     
     var formattedPrice: String {
-        return String(format: "%.2f", coin.currentPrice)
+        return String(format: "$%.2f", coin.currentPrice)
     }
     
     init(coin: Coin, image: UIImage? = nil) {
