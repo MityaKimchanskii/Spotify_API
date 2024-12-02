@@ -32,5 +32,25 @@ final class CoinDataTest: XCTestCase {
         XCTAssertEqual(95652, coinData.currentPrice)
         XCTAssertEqual(-0.6661, coinData.changePercentage)
     }
-
+    
+    func testCanParceCoinsViaJSONFile() throws {
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: "CoinsJSON", ofType: "json") else {
+            fatalError("JSON not found")
+        }
+        
+        print("\n\n\(pathString)\n\n")
+        
+        guard let json = try? String(contentsOfFile: pathString, encoding: .utf8) else {
+            fatalError("Unable to convert JSON to String")
+        }
+        
+        let jsonData = json.data(using: .utf8)!
+        let coinData = try! JSONDecoder().decode([Coin].self, from: jsonData)
+        
+        XCTAssertEqual("btc", coinData.first?.symbol)
+        XCTAssertEqual("Bitcoin", coinData.first?.name)
+        XCTAssertEqual("https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400", coinData.first?.imageURL)
+        XCTAssertEqual(95652, coinData.first?.currentPrice)
+        XCTAssertEqual(-0.65195, coinData.first?.changePercentage)
+    }
 }
