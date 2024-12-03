@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		3BA41BAA2CFE8085004802AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BA41B8B2CFE8083004802AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BA41B922CFE8083004802AD;
+			remoteInfo = SimpleCombineApp;
+		};
+		3BA41BB42CFE8085004802AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BA41B8B2CFE8083004802AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BA41B922CFE8083004802AD;
+			remoteInfo = SimpleCombineApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3BA41B932CFE8083004802AD /* SimpleCombineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCombineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BA41BA92CFE8085004802AD /* SimpleCombineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCombineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BA41BB32CFE8085004802AD /* SimpleCombineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCombineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3BA41BBB2CFE8085004802AD /* Exceptions for "SimpleCombineApp" folder in "SimpleCombineApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3BA41B922CFE8083004802AD /* SimpleCombineApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3BA41B952CFE8083004802AD /* SimpleCombineApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3BA41BBB2CFE8085004802AD /* Exceptions for "SimpleCombineApp" folder in "SimpleCombineApp" target */,
+			);
+			path = SimpleCombineApp;
+			sourceTree = "<group>";
+		};
+		3BA41BAC2CFE8085004802AD /* SimpleCombineAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SimpleCombineAppTests;
+			sourceTree = "<group>";
+		};
+		3BA41BB62CFE8085004802AD /* SimpleCombineAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SimpleCombineAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BA41B902CFE8083004802AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BA41BA62CFE8085004802AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BA41BB02CFE8085004802AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BA41B8A2CFE8083004802AD = {
+			isa = PBXGroup;
+			children = (
+				3BA41B952CFE8083004802AD /* SimpleCombineApp */,
+				3BA41BAC2CFE8085004802AD /* SimpleCombineAppTests */,
+				3BA41BB62CFE8085004802AD /* SimpleCombineAppUITests */,
+				3BA41B942CFE8083004802AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BA41B942CFE8083004802AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BA41B932CFE8083004802AD /* SimpleCombineApp.app */,
+				3BA41BA92CFE8085004802AD /* SimpleCombineAppTests.xctest */,
+				3BA41BB32CFE8085004802AD /* SimpleCombineAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BA41B922CFE8083004802AD /* SimpleCombineApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BA41BBC2CFE8085004802AD /* Build configuration list for PBXNativeTarget "SimpleCombineApp" */;
+			buildPhases = (
+				3BA41B8F2CFE8083004802AD /* Sources */,
+				3BA41B902CFE8083004802AD /* Frameworks */,
+				3BA41B912CFE8083004802AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3BA41B952CFE8083004802AD /* SimpleCombineApp */,
+			);
+			name = SimpleCombineApp;
+			packageProductDependencies = (
+			);
+			productName = SimpleCombineApp;
+			productReference = 3BA41B932CFE8083004802AD /* SimpleCombineApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BA41BA82CFE8085004802AD /* SimpleCombineAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BA41BC12CFE8085004802AD /* Build configuration list for PBXNativeTarget "SimpleCombineAppTests" */;
+			buildPhases = (
+				3BA41BA52CFE8085004802AD /* Sources */,
+				3BA41BA62CFE8085004802AD /* Frameworks */,
+				3BA41BA72CFE8085004802AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BA41BAB2CFE8085004802AD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3BA41BAC2CFE8085004802AD /* SimpleCombineAppTests */,
+			);
+			name = SimpleCombineAppTests;
+			packageProductDependencies = (
+			);
+			productName = SimpleCombineAppTests;
+			productReference = 3BA41BA92CFE8085004802AD /* SimpleCombineAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3BA41BB22CFE8085004802AD /* SimpleCombineAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BA41BC42CFE8085004802AD /* Build configuration list for PBXNativeTarget "SimpleCombineAppUITests" */;
+			buildPhases = (
+				3BA41BAF2CFE8085004802AD /* Sources */,
+				3BA41BB02CFE8085004802AD /* Frameworks */,
+				3BA41BB12CFE8085004802AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BA41BB52CFE8085004802AD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3BA41BB62CFE8085004802AD /* SimpleCombineAppUITests */,
+			);
+			name = SimpleCombineAppUITests;
+			packageProductDependencies = (
+			);
+			productName = SimpleCombineAppUITests;
+			productReference = 3BA41BB32CFE8085004802AD /* SimpleCombineAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BA41B8B2CFE8083004802AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					3BA41B922CFE8083004802AD = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					3BA41BA82CFE8085004802AD = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 3BA41B922CFE8083004802AD;
+					};
+					3BA41BB22CFE8085004802AD = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 3BA41B922CFE8083004802AD;
+					};
+				};
+			};
+			buildConfigurationList = 3BA41B8E2CFE8083004802AD /* Build configuration list for PBXProject "SimpleCombineApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BA41B8A2CFE8083004802AD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3BA41B942CFE8083004802AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BA41B922CFE8083004802AD /* SimpleCombineApp */,
+				3BA41BA82CFE8085004802AD /* SimpleCombineAppTests */,
+				3BA41BB22CFE8085004802AD /* SimpleCombineAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BA41B912CFE8083004802AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BA41BA72CFE8085004802AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BA41BB12CFE8085004802AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BA41B8F2CFE8083004802AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BA41BA52CFE8085004802AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BA41BAF2CFE8085004802AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BA41BAB2CFE8085004802AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BA41B922CFE8083004802AD /* SimpleCombineApp */;
+			targetProxy = 3BA41BAA2CFE8085004802AD /* PBXContainerItemProxy */;
+		};
+		3BA41BB52CFE8085004802AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BA41B922CFE8083004802AD /* SimpleCombineApp */;
+			targetProxy = 3BA41BB42CFE8085004802AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3BA41BBD2CFE8085004802AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SimpleCombineApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.SimpleCombineApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3BA41BBE2CFE8085004802AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SimpleCombineApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.SimpleCombineApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3BA41BBF2CFE8085004802AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3BA41BC02CFE8085004802AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BA41BC22CFE8085004802AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.SimpleCombineAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCombineApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SimpleCombineApp";
+			};
+			name = Debug;
+		};
+		3BA41BC32CFE8085004802AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.SimpleCombineAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCombineApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SimpleCombineApp";
+			};
+			name = Release;
+		};
+		3BA41BC52CFE8085004802AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.SimpleCombineAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SimpleCombineApp;
+			};
+			name = Debug;
+		};
+		3BA41BC62CFE8085004802AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G3VP62JDQQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Smart-Penny-LLC.SimpleCombineAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SimpleCombineApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BA41B8E2CFE8083004802AD /* Build configuration list for PBXProject "SimpleCombineApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BA41BBF2CFE8085004802AD /* Debug */,
+				3BA41BC02CFE8085004802AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BA41BBC2CFE8085004802AD /* Build configuration list for PBXNativeTarget "SimpleCombineApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BA41BBD2CFE8085004802AD /* Debug */,
+				3BA41BBE2CFE8085004802AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BA41BC12CFE8085004802AD /* Build configuration list for PBXNativeTarget "SimpleCombineAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BA41BC22CFE8085004802AD /* Debug */,
+				3BA41BC32CFE8085004802AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BA41BC42CFE8085004802AD /* Build configuration list for PBXNativeTarget "SimpleCombineAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BA41BC52CFE8085004802AD /* Debug */,
+				3BA41BC62CFE8085004802AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BA41B8B2CFE8083004802AD /* Project object */;
+}

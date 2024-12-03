@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Combine
 
 final class ImageLoader {
     
@@ -30,5 +30,29 @@ final class ImageLoader {
             completion(.success(data))
             
         }.resume()
+    }
+
+    public func downloadImageUsingCombine(_ stringURL: String) -> Future<Data, NetworkError> {
+        return Future { promise in
+            guard let url = URL(string: stringURL) else {
+                return promise(.failure(.invalidURL))
+            }
+            
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    return promise(.failure(.networkError(error)))
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    return promise(.failure(.invalidResponse))
+                }
+                
+                guard let data = data else {
+                    return promise(.failure(.noData))
+                }
+                
+                promise(.success(data))
+            }.resume()
+        }
     }
 }
