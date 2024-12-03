@@ -12,7 +12,6 @@ final class MyCollectionViewCellViewModel {
     
     let coin: Coin
     var image: UIImage?
-    
     var onImageDownloaded: (() -> Void)?
     
     var formattedPrice: String {

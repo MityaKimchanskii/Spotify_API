@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class CoinCollectionViewCell: UICollectionViewCell {
     
     static let id = "CoinCollectionViewCell"
