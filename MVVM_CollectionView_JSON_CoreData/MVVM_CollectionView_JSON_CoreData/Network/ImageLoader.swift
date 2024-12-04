@@ -32,3 +32,4 @@ final class ImageLoader {
         }.resume()
     }
 }
+
