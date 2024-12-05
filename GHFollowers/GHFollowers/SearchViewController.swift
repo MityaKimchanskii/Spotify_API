@@ -9,6 +9,10 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    var isUsernameEntered: Bool {
+        return !usernameTextField.text!.isEmpty
+    }
+    
     private let logoImageView = UIImageView()
     private let usernameTextField = GFTextField()
     private let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
@@ -73,6 +77,11 @@ extension SearchViewController {
 // MARK: - Actions
 extension SearchViewController {
     @objc private func pushFollowerListVC() {
+        guard isUsernameEntered else {
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username", buttonTitle: "Ok")
+            return
+        }
+        
         let followerVC = FollowerListViewController()
         followerVC.username = usernameTextField.text
         followerVC.title = usernameTextField.text
