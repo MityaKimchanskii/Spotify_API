@@ -52,6 +52,11 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		3B9A30CF2D041FA400CFDDF2 /* Utilities */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		3BBF75E42D00E9DA00F2825B /* GHFollowersTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GHFollowersTests;
@@ -127,6 +132,7 @@
 		3BBF76062D00EF2F00F2825B /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				3B9A30CF2D041FA400CFDDF2 /* Utilities */,
 				3B7F87752D02B55600BB2718 /* Managers */,
 				3B9A30CC2D04147500CFDDF2 /* Models */,
 				3BBF76252D01358600F2825B /* Extensions */,
@@ -167,6 +173,7 @@
 			fileSystemSynchronizedGroups = (
 				3B7F87752D02B55600BB2718 /* Managers */,
 				3B9A30CC2D04147500CFDDF2 /* Models */,
+				3B9A30CF2D041FA400CFDDF2 /* Utilities */,
 				3BBF76232D01354A00F2825B /* Screens */,
 				3BBF76242D01355800F2825B /* CustomViews */,
 				3BBF76252D01358600F2825B /* Extensions */,

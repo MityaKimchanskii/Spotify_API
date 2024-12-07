@@ -35,23 +35,9 @@ class FollowerListViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createFlowLayout(view: view))
         view.addSubview(collectionView)
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.id)
-    }
-    
-    private func createFlowLayout() -> UICollectionViewFlowLayout {
-        let width = view.bounds.width
-        let padding: CGFloat = 12
-        let itemSpacing: CGFloat = 10
-        let availableWidth = width - padding*2 - itemSpacing*2
-        let itemWidth = availableWidth / 3
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
-        
-        return flowLayout
     }
     
     private func getFollowers() {
