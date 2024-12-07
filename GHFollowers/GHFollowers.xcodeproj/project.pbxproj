@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B7F87722D02AD8800BB2718 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F87712D02AD8800BB2718 /* Follower.swift */; };
-		3B7F87742D02AE5300BB2718 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F87732D02AE4D00BB2718 /* User.swift */; };
 		3BBF76072D00EF2F00F2825B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF75FF2D00EF2F00F2825B /* AppDelegate.swift */; };
 		3BBF76082D00EF2F00F2825B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBF76042D00EF2F00F2825B /* SceneDelegate.swift */; };
 		3BBF760A2D00EF2F00F2825B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BBF76002D00EF2F00F2825B /* Assets.xcassets */; };
@@ -33,8 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B7F87712D02AD8800BB2718 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
-		3B7F87732D02AE4D00BB2718 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3BBF75CB2D00E9D800F2825B /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BBF75E12D00E9DA00F2825B /* GHFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BBF75EB2D00E9DA00F2825B /* GHFollowersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHFollowersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +45,11 @@
 		3B7F87752D02B55600BB2718 /* Managers */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		3B9A30CC2D04147500CFDDF2 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3BBF75E42D00E9DA00F2825B /* GHFollowersTests */ = {
@@ -103,15 +104,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B7F87702D02AD7600BB2718 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3B7F87732D02AE4D00BB2718 /* User.swift */,
-				3B7F87712D02AD8800BB2718 /* Follower.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		3BBF75C22D00E9D800F2825B = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				3B7F87752D02B55600BB2718 /* Managers */,
-				3B7F87702D02AD7600BB2718 /* Models */,
+				3B9A30CC2D04147500CFDDF2 /* Models */,
 				3BBF76252D01358600F2825B /* Extensions */,
 				3BBF76242D01355800F2825B /* CustomViews */,
 				3BBF76232D01354A00F2825B /* Screens */,
@@ -174,6 +166,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				3B7F87752D02B55600BB2718 /* Managers */,
+				3B9A30CC2D04147500CFDDF2 /* Models */,
 				3BBF76232D01354A00F2825B /* Screens */,
 				3BBF76242D01355800F2825B /* CustomViews */,
 				3BBF76252D01358600F2825B /* Extensions */,
@@ -306,8 +299,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7F87742D02AE5300BB2718 /* User.swift in Sources */,
-				3B7F87722D02AD8800BB2718 /* Follower.swift in Sources */,
 				3BBF76072D00EF2F00F2825B /* AppDelegate.swift in Sources */,
 				3BBF76082D00EF2F00F2825B /* SceneDelegate.swift in Sources */,
 			);
