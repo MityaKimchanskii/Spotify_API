@@ -12,7 +12,7 @@ class FollowerListViewController: UIViewController {
     enum Section {
         case main
     }
-
+    
     var username: String!
     private var followers: [Follower] = []
     private var collectionView: UICollectionView!
@@ -32,7 +32,7 @@ class FollowerListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -44,16 +44,36 @@ class FollowerListViewController: UIViewController {
     }
     
     private func getFollowers(username: String, page: Int) {
+        showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+            guard let self = self else { return }
+            self.dismissLoadingView()
+            
             switch result {
             case .success(let followers):
-                if followers?.count ?? 0 < 100 {
-                    self?.hasMoreFollowers = false
+                guard let followers else { return }
+                if followers.count < 100 {
+                    self.hasMoreFollowers = false
                 }
-                self?.followers.append(contentsOf: followers ?? [])
-                self?.updateData()
+                
+                self.followers.append(contentsOf: followers)
+                
+                if self.followers.count < 100 {
+                    self.hasMoreFollowers = false
+                }
+                
+                
+                DispatchQueue.main.async {
+                    if self.followers.isEmpty {
+                        let message = "This user does not have any followers."
+                        self.showEmptyStateView(with: message, in: self.view)
+                        return
+                    }
+                }
+                
+                self.updateData()
             case .failure(let error):
-                self?.presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "OK")
+                self.presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "OK")
             }
         }
     }
@@ -87,12 +107,14 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
         
-        if offsetY > contentHeight - height {
+        print("Offset: \(offsetY)")
+        print("coontent height: \(contentHeight)")
+        print("height: \(height)")
+        
+        if offsetY > contentHeight - 2*height {
             guard hasMoreFollowers else { return }
             page += 1
             getFollowers(username: username, page: page)
         }
     }
-    
-    
 }
