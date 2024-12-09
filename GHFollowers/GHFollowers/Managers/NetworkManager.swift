@@ -26,7 +26,6 @@ final class NetworkManager {
             return
         }
         
-        
         URLSession.shared.dataTask(with: url) { data, res, error in
             if error != nil {
                 return completion(.failure(.invalidURL))
@@ -47,6 +46,39 @@ final class NetworkManager {
             do {
                 let followers = try JSONDecoder().decode([Follower].self, from: data)
                 completion(.success(followers))
+            } catch {
+                completion(.failure(.noData))
+            }
+        }.resume()
+    }
+    
+    func getUserInfo(for username: String, completion: @escaping (Result<User?, NetworkError>) -> Void) {
+        let endpoint = baseURL + "/\(username)"
+        guard let url = URL(string: endpoint) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, res, error in
+            if error != nil {
+                return completion(.failure(.invalidURL))
+            }
+            
+            if let res = res as? HTTPURLResponse, res.statusCode == 200 {
+                print("Status code: \(res.statusCode)")
+            } else {
+                completion(.failure(.invalidURL))
+                return
+            }
+            
+            guard let data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let user = try JSONDecoder().decode(User.self, from: data)
+                completion(.success(user))
             } catch {
                 completion(.failure(.noData))
             }
