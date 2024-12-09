@@ -12,6 +12,8 @@ final class UserInfoViewController: UIViewController {
     
     public var username: String!
     
+    private let headerView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,19 +34,33 @@ extension UserInfoViewController {
             guard let self = self else { return }
             switch result {
             case .success(let user):
-                print(user)
+                DispatchQueue.main.async {
+                    self.add(childVC: GFUserInfoHeaderVIewController(user: user), to: self.headerView)
+                }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
+        
+        headerView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func layout() {
-        
+        view.addSubview(headerView)
         
         NSLayoutConstraint.activate([
-            
+            headerView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 0),
+            headerView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 0),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: headerView.trailingAnchor, multiplier: 0),
+            headerView.heightAnchor.constraint(equalToConstant: 180)
         ])
+    }
+    
+    private func add(childVC: UIViewController, to containerView: UIView) {
+        addChild(childVC)
+        containerView.addSubview(childVC.view)
+        childVC.view.frame = containerView.bounds
+        childVC.didMove(toParent: self)
     }
 }
 
