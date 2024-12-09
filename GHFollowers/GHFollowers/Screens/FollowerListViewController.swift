@@ -15,6 +15,9 @@ class FollowerListViewController: UIViewController {
     
     var username: String!
     private var followers: [Follower] = []
+    private var filteredFollowers: [Follower] = []
+    
+    
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     private var page = 1
@@ -28,6 +31,7 @@ class FollowerListViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
         getFollowers(username: username, page: page)
+        configureSearchController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +75,7 @@ class FollowerListViewController: UIViewController {
                     }
                 }
                 
-                self.updateData()
+                self.updateData(followers)
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "OK")
             }
@@ -87,7 +91,7 @@ class FollowerListViewController: UIViewController {
         })
     }
     
-    private func updateData() {
+    private func updateData(_ followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
@@ -95,8 +99,17 @@ class FollowerListViewController: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
+    
+    private func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for a username"
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+    }
 }
 
+// MARK: - UICollectionViewDelegate
 extension FollowerListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -116,5 +129,23 @@ extension FollowerListViewController: UICollectionViewDelegate {
             page += 1
             getFollowers(username: username, page: page)
         }
+    }
+}
+
+
+// MARK: - UISearcResultUpdating
+extension FollowerListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        
+        filteredFollowers = followers.filter({ $0.login.lowercased().contains(filter.lowercased()) })
+        updateData(filteredFollowers)
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+extension FollowerListViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(followers)
     }
 }
