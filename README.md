@@ -20,4 +20,6 @@
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/Example_Core_Data">- Simple Core Data Example </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/MVVM_TableView_ReadFromJSONFile">- Example MVVM project with UITableView from JSON file </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/MVVM_CollectionView_JSON_CoreData">- Example MVVM project with UICollectionView and Unit Test from JSON file </a>
+#### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/BobsBurgersApp">- MVVM project, read JSON from the file, UITableViewDiffableDataSource and SarchController  </a>
 #### <a href="https://github.com/MityaKimchanskii/Spotify_API/tree/main/SimpleCombineApp">- Simple Combine example </a>
+
