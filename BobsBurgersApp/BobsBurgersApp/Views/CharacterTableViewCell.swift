@@ -69,7 +69,7 @@ extension CharacterTableViewCell {
             characterImageView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
             bottomAnchor.constraint(equalToSystemSpacingBelow: characterImageView.bottomAnchor, multiplier: 1),
             
-            stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
+            stackView.centerYAnchor.constraint(equalTo: characterImageView.centerYAnchor),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: characterImageView.trailingAnchor, multiplier: 1)
         ])
     }

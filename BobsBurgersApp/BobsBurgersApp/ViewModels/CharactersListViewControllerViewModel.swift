@@ -30,12 +30,9 @@ final class CharactersListViewControllerViewModel: NSObject {
     private func readCharactersFromJsonFile() {
         guard let filePath = Bundle.main.path(forResource: "Data", ofType: "json") else { fatalError("Please check file path!") }
         
-        print(filePath)
-        
         do {
             let data = try Data(contentsOf: URL(filePath: filePath))
             let result = try JSONDecoder().decode([Character].self, from: data)
-            print(result)
             characters = result
             updateData(characters)
         } catch {
@@ -48,6 +45,10 @@ final class CharactersListViewControllerViewModel: NSObject {
 extension CharactersListViewControllerViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 116
     }
 }
 
