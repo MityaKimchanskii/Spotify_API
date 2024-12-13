@@ -86,7 +86,7 @@ extension CharactersListViewControllerViewModel: UISearchResultsUpdating {
     }
 }
 
-// MARK: - UISearchControllerDelegate
+// MARK: - UISearchBarDelegate
 extension CharactersListViewControllerViewModel: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isSearching = false
