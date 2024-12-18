@@ -55,18 +55,12 @@ class FollowerListViewController: UIViewController {
             self.dismissLoadingView()
             
             switch result {
-            case .success(let followers):
-                guard let followers else { return }
-                if followers.count < 100 {
+            case .success(let newFollowers):
+                if newFollowers.count < 100 {
                     self.hasMoreFollowers = false
                 }
                 
-                self.followers.append(contentsOf: followers)
-                
-                if self.followers.count < 100 {
-                    self.hasMoreFollowers = false
-                }
-                
+                followers.append(contentsOf: newFollowers)
                 
                 DispatchQueue.main.async {
                     if self.followers.isEmpty {
@@ -96,6 +90,7 @@ class FollowerListViewController: UIViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
+        
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
@@ -126,12 +121,9 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
+
         
-        print("Offset: \(offsetY)")
-        print("coontent height: \(contentHeight)")
-        print("height: \(height)")
-        
-        if offsetY > contentHeight - 2*height {
+        if offsetY > contentHeight - height {
             guard hasMoreFollowers else { return }
             page += 1
             getFollowers(username: username, page: page)
