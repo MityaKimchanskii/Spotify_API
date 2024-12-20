@@ -8,7 +8,7 @@
 import UIKit
 
 class GFButton: UIButton {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -26,6 +26,11 @@ class GFButton: UIButton {
         self.setTitle(title, for: .normal)
         
         configure()
+    }
+    
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
     }
     
     private func configure() {

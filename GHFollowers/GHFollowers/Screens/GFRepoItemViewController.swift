@@ -10,7 +10,7 @@
 import UIKit
 
 
-final class GFRepeItemViewController: GFItemInfoViewController {
+final class GFRepoItemViewController: GFItemInfoViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,11 @@ final class GFRepeItemViewController: GFItemInfoViewController {
 }
 
 // MARK: - Methods
-extension GFRepeItemViewController {
+extension GFRepoItemViewController {
     private func style() {
-        itemInfoViewOne.set(itemsInfoType: .repos, with: <#T##Int#>)
+        itemInfoViewOne.set(itemsInfoType: .repos, with: user.publicRepos)
+        itemInfoViewTwo.set(itemsInfoType: .gists, with: user.publicGists)
+        actionButton.set(backgroundColor: .systemPurple, title: "Github Profile")
     }
     
     private func layout() {

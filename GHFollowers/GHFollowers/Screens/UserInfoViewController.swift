@@ -44,7 +44,10 @@ extension UserInfoViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
+                    guard let user else { return }
                     self.add(childVC: GFUserInfoHeaderVIewController(user: user), to: self.headerView)
+                    self.add(childVC: GFRepoItemViewController(user: user), to: self.itemViewOne)
+                    self.add(childVC: GFFollowerItemViewController(user: user), to: self.itemViewTwo)
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")

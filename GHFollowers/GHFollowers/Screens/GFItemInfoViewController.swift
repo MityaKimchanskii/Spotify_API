@@ -15,7 +15,7 @@ class GFItemInfoViewController: UIViewController {
     let itemInfoViewTwo = GFItemInfoView()
     let actionButton = GFButton()
     
-    let user: User
+    var user: User
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,8 @@ class GFItemInfoViewController: UIViewController {
     }
     
     init(user: User) {
-        super.init(nibName: nil, bundle: nil)
-        
         self.user = user
+        super.init(nibName: nil, bundle: nil)
     }
         
     
