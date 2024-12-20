@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SafariServices
 
 
-protocol UserInfoVCDelegate {
-    func didTapGithubProfile()
-    func didTapGetFollowers()
+protocol UserInfoVCDelegate: AnyObject {
+    func didTapGithubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
 }
 
 
@@ -120,12 +121,17 @@ extension UserInfoViewController {
 }
 
 extension UserInfoViewController: UserInfoVCDelegate {
-    func didTapGithubProfile() {
-        print("hello")
+    func didTapGithubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGFAlertOnMainThread(title: "Invalid URL", message: "The URL is Invalid", buttonTitle: "Ok")
+            return
+        }
+        
+        presentSafariVC(with: url)
     }
     
-    func didTapGetFollowers() {
-        print("Bye")
+    func didTapGetFollowers(for user: User) {
+        
     }
 }
 
