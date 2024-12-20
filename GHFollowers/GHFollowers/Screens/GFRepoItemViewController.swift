@@ -16,7 +16,6 @@ final class GFRepoItemViewController: GFItemInfoViewController {
         super.viewDidLoad()
         
         style()
-        layout()
     }
 }
 
@@ -28,12 +27,8 @@ extension GFRepoItemViewController {
         actionButton.set(backgroundColor: .systemPurple, title: "Github Profile")
     }
     
-    private func layout() {
-        
-        
-        NSLayoutConstraint.activate([
-            
-        ])
+    override func actionButtonTapped() {
+        delegate.didTapGithubProfile()
     }
 }
 

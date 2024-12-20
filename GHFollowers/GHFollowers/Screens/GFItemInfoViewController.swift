@@ -15,6 +15,8 @@ class GFItemInfoViewController: UIViewController {
     let itemInfoViewTwo = GFItemInfoView()
     let actionButton = GFButton()
     
+    var delegate: UserInfoVCDelegate!
+    
     var user: User
     
     override func viewDidLoad() {
@@ -43,6 +45,12 @@ extension GFItemInfoViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
+        
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .primaryActionTriggered)
+    }
+    
+    @objc func actionButtonTapped() {
+        
     }
     
     private func layout() {
@@ -65,3 +73,5 @@ extension GFItemInfoViewController {
         ])
     }
 }
+
+

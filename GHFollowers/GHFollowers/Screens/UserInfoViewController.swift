@@ -8,6 +8,12 @@
 import UIKit
 
 
+protocol UserInfoVCDelegate {
+    func didTapGithubProfile()
+    func didTapGetFollowers()
+}
+
+
 final class UserInfoViewController: UIViewController {
     
     public var username: String!
@@ -15,6 +21,8 @@ final class UserInfoViewController: UIViewController {
     private let headerView = UIView()
     private let itemViewOne = UIView()
     private let itemViewTwo = UIView()
+    
+    private let dateLabel = GFBodyLabel(textAlignment: .center)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +53,7 @@ extension UserInfoViewController {
             case .success(let user):
                 DispatchQueue.main.async {
                     guard let user else { return }
-                    self.add(childVC: GFUserInfoHeaderVIewController(user: user), to: self.headerView)
-                    self.add(childVC: GFRepoItemViewController(user: user), to: self.itemViewOne)
-                    self.add(childVC: GFFollowerItemViewController(user: user), to: self.itemViewTwo)
+                    self.configure(with: user)
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
@@ -55,10 +61,25 @@ extension UserInfoViewController {
         }
     }
     
+    private func configure(with user: User) {
+        add(childVC: GFUserInfoHeaderVIewController(user: user), to: headerView)
+        
+        let repoItemVC = GFRepoItemViewController(user: user)
+        repoItemVC.delegate = self
+        add(childVC: repoItemVC, to: itemViewOne)
+        
+        let followingItemVC = GFFollowerItemViewController(user: user)
+        followingItemVC.delegate = self
+        add(childVC: followingItemVC, to: itemViewTwo)
+        
+        dateLabel.text = "Github since: \(user.createdAt.convertToDisplay())"
+    }
+    
     private func layout() {
         view.addSubview(headerView)
         view.addSubview(itemViewOne)
         view.addSubview(itemViewTwo)
+        view.addSubview(dateLabel)
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 0),
@@ -74,7 +95,12 @@ extension UserInfoViewController {
             itemViewTwo.topAnchor.constraint(equalToSystemSpacingBelow: itemViewOne.bottomAnchor, multiplier: 2),
             itemViewTwo.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: itemViewTwo.trailingAnchor, multiplier: 2),
-            itemViewTwo.heightAnchor.constraint(equalToConstant: 140)
+            itemViewTwo.heightAnchor.constraint(equalToConstant: 140),
+            
+            dateLabel.topAnchor.constraint(equalToSystemSpacingBelow: itemViewTwo.bottomAnchor, multiplier: 2),
+            dateLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: dateLabel.trailingAnchor, multiplier: 2),
+            dateLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -90,6 +116,16 @@ extension UserInfoViewController {
 extension UserInfoViewController {
     @objc private func didTapDoneButton() {
         dismiss(animated: true)
+    }
+}
+
+extension UserInfoViewController: UserInfoVCDelegate {
+    func didTapGithubProfile() {
+        print("hello")
+    }
+    
+    func didTapGetFollowers() {
+        print("Bye")
     }
 }
 

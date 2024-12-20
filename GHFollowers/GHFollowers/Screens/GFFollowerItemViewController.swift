@@ -14,7 +14,6 @@ final class GFFollowerItemViewController: GFItemInfoViewController {
         super.viewDidLoad()
         
         style()
-        layout()
     }
 }
 
@@ -26,12 +25,8 @@ extension GFFollowerItemViewController {
         actionButton.set(backgroundColor: .systemGreen, title: "Get Followers")
     }
     
-    private func layout() {
-        
-        
-        NSLayoutConstraint.activate([
-            
-        ])
+    override func actionButtonTapped() {
+        delegate.didTapGetFollowers()
     }
 }
 
