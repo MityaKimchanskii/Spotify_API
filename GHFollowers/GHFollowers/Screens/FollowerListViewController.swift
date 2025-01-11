@@ -7,6 +7,12 @@
 
 import UIKit
 
+
+protocol FollowerListViewControllerDelegate: AnyObject {
+    func didRequestFollowers(for username: String)
+}
+
+
 class FollowerListViewController: UIViewController {
     
     enum Section {
@@ -33,6 +39,9 @@ class FollowerListViewController: UIViewController {
         configureDataSource()
         getFollowers(username: username, page: page)
         configureSearchController()
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +55,30 @@ class FollowerListViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.id)
         collectionView.delegate = self
+    }
+    
+    @objc private func didTapAddButton() {
+        showLoadingView()
+        
+        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+            guard let self = self else { return }
+            self.dismissLoadingView()
+            switch result {
+            case .success(let user):
+                let favorite = Follower(login: user?.login ?? "", avatarURL: user?.avatarUrl ?? "")
+                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                    guard let self = self else { return }
+                    guard let error = error else {
+                        self.presentGFAlertOnMainThread(title: "Success", message: "You have added this user!", buttonTitle: "Hooray!")
+                        return
+                    }
+                    self.presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
+                }
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Errow", message: error.localizedDescription, buttonTitle: "Ok")
+                
+            }
+        }
     }
     
     private func getFollowers(username: String, page: Int) {
@@ -113,6 +146,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let follower = activeArray[indexPath.item]
         let userInfoVC = UserInfoViewController()
         userInfoVC.username = follower.login
+        userInfoVC.delegate = self
         let userNC = UINavigationController(rootViewController: userInfoVC)
         present(userNC, animated: true)
     }
@@ -147,5 +181,17 @@ extension FollowerListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateData(followers)
         isSearching = false
+    }
+}
+
+extension FollowerListViewController: FollowerListViewControllerDelegate {
+    func didRequestFollowers(for username: String) {
+        self.username = username
+        title = username
+        page = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers(username: username, page: page)
     }
 }

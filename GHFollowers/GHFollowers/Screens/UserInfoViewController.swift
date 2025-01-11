@@ -19,6 +19,8 @@ final class UserInfoViewController: UIViewController {
     
     public var username: String!
     
+    weak var delegate: FollowerListViewControllerDelegate?
+    
     private let headerView = UIView()
     private let itemViewOne = UIView()
     private let itemViewTwo = UIView()
@@ -131,7 +133,12 @@ extension UserInfoViewController: UserInfoVCDelegate {
     }
     
     func didTapGetFollowers(for user: User) {
-        
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No Followers", message: "No Followers", buttonTitle: "So Good!")
+            return
+        }
+        delegate?.didRequestFollowers(for: user.login)
+        dismiss(animated: true)
     }
 }
 
